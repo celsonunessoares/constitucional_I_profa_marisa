@@ -1,0 +1,2702 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado - Direito Constitucional I</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbars and transition styles */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(100, 100, 100, 0.3);
+            border-radius: 4px;
+        }
+
+        .option-btn {
+            transition: all 0.2s ease-in-out;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans min-h-full flex flex-col transition-colors duration-200">
+
+    <!-- Header Navbar -->
+    <header
+        class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center space-x-3 cursor-pointer" id="brandHomeBtn">
+                <div
+                    class="bg-brand-600 text-white p-2 rounded-lg font-bold text-lg flex items-center justify-center w-10 h-10 shadow">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 dark:text-white text-base sm:text-lg leading-tight">Simulado
+                        para Prova AV1 - Profª Marisa</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">Direito Constitucional I — AV1
+                    </p>
+                </div>
+            </div>
+
+            <!-- Header Quick Actions -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <button id="themeToggleBtn"
+                    class="p-2.5 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors"
+                    title="Alternar Tema">
+                    <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-amber-400 text-lg"></i>
+                </button>
+                <button id="resetSimuladoHeaderBtn"
+                    class="px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors flex items-center space-x-1.5">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <span class="hidden sm:inline">Reiniciar</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+        <!-- SCREEN 1: TELA INICIAL (WELCOME SCREEN) -->
+        <div id="welcomeScreen" class="max-w-4xl mx-auto animate-fade-in space-y-6">
+            <div
+                class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 dark:border-slate-700 text-center space-y-6">
+                <div
+                    class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 text-2xl mb-2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                    SIMULADO DE CONCURSO PÚBLICO
+                </h2>
+                <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base">
+                    Teste seus conhecimentos com <strong class="text-brand-600 dark:text-brand-400">100 questões
+                        inéditas</strong> elaboradas com base no conteúdo programático de Direito Constitucional I.
+                    Responda uma questão por vez, receba feedback imediato com explicações pedagógicas detalhadas e
+                    acompanhe seu desempenho em tempo real.
+                </p>
+
+                <!-- Features Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 text-left">
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700">
+                        <i class="fa-solid fa-list-check text-brand-500 mb-2 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">100 Questões</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Estilo bancas organizadoras</p>
+                    </div>
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700">
+                        <i class="fa-solid fa-layer-group text-emerald-500 mb-2 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Níveis Fácil & Médio</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">50 Fáceis e 50 Médias</p>
+                    </div>
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700">
+                        <i class="fa-solid fa-lightbulb text-amber-500 mb-2 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Explicações</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Comentários detalhados</p>
+                    </div>
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-100 dark:border-slate-700">
+                        <i class="fa-solid fa-chart-pie text-indigo-500 mb-2 text-xl"></i>
+                        <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Estatísticas</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Desempenho por assunto</p>
+                    </div>
+                </div>
+
+                <!-- Config Options before Start -->
+                <div
+                    class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-left space-y-3">
+                    <h3 class="font-semibold text-slate-800 dark:text-slate-200 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-brand-500"></i> Opções do Simulado
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Filtrar por
+                                Assunto / Nível:</label>
+                            <select id="filterSelect"
+                                class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg p-2.5 text-slate-800 dark:text-slate-200 text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                                <option value="ALL">Todas as Questões (100 questões)</option>
+                                <option value="LEVEL_FACIL">Apenas Nível Fácil (50 questões)</option>
+                                <option value="LEVEL_MEDIO">Apenas Nível Médio (50 questões)</option>
+                                <optgroup label="Por Assunto" id="topicOptionsGroup"></optgroup>
+                            </select>
+                        </div>
+                        <div class="flex flex-col justify-end">
+                            <label class="inline-flex items-center cursor-pointer space-x-2 py-2">
+                                <input type="checkbox" id="shuffleOnStartCheck"
+                                    class="w-4 h-4 text-brand-600 rounded border-slate-300 dark:border-slate-600 focus:ring-brand-500">
+                                <span class="text-slate-700 dark:text-slate-300 font-medium">Embaralhar ordem das
+                                    questões e alternativas</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume notice if saved progress exists -->
+                <div id="resumeNotice"
+                    class="hidden p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl text-amber-800 dark:text-amber-200 text-sm flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+                    <div>
+                        <p class="font-bold"><i class="fa-solid fa-clock-rotate-left mr-1"></i> Progresso Salvo
+                            Encontrado!</p>
+                        <p class="text-xs text-amber-700 dark:text-amber-300" id="resumeInfoText">Você já respondeu 0 de
+                            100 questões.</p>
+                    </div>
+                    <div class="flex gap-2 w-full sm:w-auto">
+                        <button id="clearProgressBtn"
+                            class="px-3 py-1.5 text-xs text-red-600 dark:text-red-400 bg-red-100 dark:bg-red-900/40 hover:bg-red-200 rounded-lg font-medium transition-colors">
+                            Limpar Dados
+                        </button>
+                        <button id="resumeSimuladoBtn"
+                            class="px-4 py-1.5 text-xs bg-amber-600 text-white hover:bg-amber-700 rounded-lg font-semibold transition-colors">
+                            Continuar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Start Action Button -->
+                <div class="pt-2">
+                    <button id="startSimuladoBtn"
+                        class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center mx-auto space-x-2">
+                        <span>INICIAR SIMULADO</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: TELA DA QUESTÃO (QUIZ INTERFACE WITH SIDEBAR) -->
+        <div id="quizScreen" class="hidden grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fade-in">
+
+            <!-- Main Question Section (8 cols) -->
+            <div class="lg:col-span-8 space-y-6">
+                <!-- Top Question Status & Progress Header -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-700 space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <span id="questionCounterBadge"
+                            class="px-3 py-1 bg-brand-50 dark:bg-slate-700 text-brand-700 dark:text-brand-300 font-semibold rounded-full text-xs sm:text-sm">
+                            Questão 1 de 100
+                        </span>
+                        <div class="flex items-center space-x-2">
+                            <span id="questionLevelBadge"
+                                class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
+                                Nível Fácil
+                            </span>
+                            <span id="questionTopicBadge"
+                                class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300 max-w-[200px] truncate">
+                                Assunto
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Progress Bar -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs text-slate-500 dark:text-slate-400 font-medium">
+                            <span>Progresso Geral</span>
+                            <span id="progressBarText">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                            <div id="progressBarFill" class="bg-brand-600 h-full transition-all duration-300"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Active Question Card -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 space-y-6">
+                    <!-- Statement (Enunciado) -->
+                    <div class="space-y-2">
+                        <p id="questionStatement"
+                            class="text-base sm:text-lg font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+                            <!-- Enunciado vai aqui -->
+                        </p>
+                    </div>
+
+                    <!-- Alternatives List -->
+                    <div id="alternativesContainer" class="space-y-3">
+                        <!-- Alternativas A, B, C, D geradas dinamicamente -->
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div
+                        class="pt-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-slate-100 dark:border-slate-700/60">
+                        <button id="prevQuestionBtn"
+                            class="w-full sm:w-auto px-4 py-2 text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-xl font-medium transition-colors flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                            <span>Anterior</span>
+                        </button>
+
+                        <button id="confirmAnswerBtn"
+                            class="w-full sm:w-auto px-6 py-2.5 text-sm text-white bg-brand-600 hover:bg-brand-700 font-semibold rounded-xl shadow transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span>Confirmar Resposta</span>
+                            <i class="fa-solid fa-check text-xs"></i>
+                        </button>
+
+                        <button id="nextQuestionBtn"
+                            class="hidden w-full sm:w-auto px-6 py-2.5 text-sm text-white bg-slate-900 dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white font-semibold rounded-xl shadow transition-colors flex items-center justify-center space-x-2">
+                            <span>Próxima Questão</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback & Pedagogical Explanation Box (Shown after responding) -->
+                <div id="explanationCard"
+                    class="hidden bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 animate-fade-in space-y-4">
+                    <div id="feedbackBanner" class="p-4 rounded-xl flex items-center space-x-3 font-bold text-base">
+                        <!-- Feedback status icon + text -->
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
+                            <i class="fa-solid fa-book-open text-brand-500"></i> Explicação Didática:
+                        </h4>
+                        <div id="explanationText"
+                            class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <!-- Explicação detalhada -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Section (4 cols) -->
+            <div class="lg:col-span-4 space-y-6">
+                <!-- Performance Panel -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-2xl p-5 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4 sticky top-20">
+                    <h3
+                        class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2 pb-2 border-b border-slate-100 dark:border-slate-700">
+                        <i class="fa-solid fa-chart-line text-brand-500"></i> Painel de Desempenho
+                    </h3>
+
+                    <!-- Quick Metrics Grid -->
+                    <div class="grid grid-cols-2 gap-3 text-center">
+                        <div
+                            class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Respondidas</p>
+                            <p id="sidebarAnsweredText" class="text-lg font-bold text-slate-800 dark:text-slate-200">0 /
+                                100</p>
+                        </div>
+                        <div
+                            class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Aproveitamento</p>
+                            <p id="sidebarAccuracyText" class="text-lg font-bold text-brand-600 dark:text-brand-400">0%
+                            </p>
+                        </div>
+                        <div
+                            class="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-100 dark:border-emerald-800/40">
+                            <p class="text-xs text-emerald-600 dark:text-emerald-400">Acertos</p>
+                            <p id="sidebarCorrectText" class="text-lg font-bold text-emerald-700 dark:text-emerald-300">
+                                0</p>
+                        </div>
+                        <div
+                            class="p-3 bg-rose-50 dark:bg-rose-950/30 rounded-xl border border-rose-100 dark:border-rose-800/40">
+                            <p class="text-xs text-rose-600 dark:text-rose-400">Erros</p>
+                            <p id="sidebarWrongText" class="text-lg font-bold text-rose-700 dark:text-rose-300">0</p>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Question Grid Navigator -->
+                    <div class="space-y-2 pt-2">
+                        <div
+                            class="flex items-center justify-between text-xs font-semibold text-slate-600 dark:text-slate-300">
+                            <span>Navegação de Questões</span>
+                            <span class="text-slate-400 font-normal">Clique para ir</span>
+                        </div>
+                        <div id="questionGridNav"
+                            class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 max-h-56 overflow-y-auto p-1 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-100 dark:border-slate-700">
+                            <!-- Quadradinhos de 1 a 100 -->
+                        </div>
+                    </div>
+
+                    <!-- Control Buttons in Sidebar -->
+                    <div class="pt-2 space-y-2">
+                        <button id="shuffleSimuladoBtn"
+                            class="w-full py-2 px-3 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-shuffle"></i> Embaralhar Questões
+                        </button>
+                        <button id="finishSimuladoEarlyBtn"
+                            class="w-full py-2 px-3 text-xs font-semibold text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors flex items-center justify-center gap-1.5">
+                            <i class="fa-solid fa-flag-checkered"></i> Finalizar e Ver Resultado
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: TELA DE RESULTADO FINAL -->
+        <div id="resultScreen" class="hidden max-w-5xl mx-auto animate-fade-in space-y-8">
+            <!-- Header Result Card -->
+            <div
+                class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200 dark:border-slate-700 text-center space-y-6">
+                <div
+                    class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 text-3xl">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">SIMULADO CONCLUÍDO!</h2>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Confira abaixo o resumo detalhado do seu
+                        desempenho.</p>
+                </div>
+
+                <!-- Highlight Metrics Overview -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/50 rounded-2xl border border-slate-200 dark:border-slate-700">
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Total de Questões</p>
+                        <p id="resTotalQuestions" class="text-2xl font-black text-slate-800 dark:text-slate-100">100</p>
+                    </div>
+                    <div
+                        class="p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800/40">
+                        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">Acertos</p>
+                        <p id="resCorrectCount" class="text-2xl font-black text-emerald-600 dark:text-emerald-400">0</p>
+                    </div>
+                    <div
+                        class="p-4 bg-rose-50 dark:bg-rose-950/30 rounded-2xl border border-rose-200 dark:border-rose-800/40">
+                        <p class="text-xs text-rose-600 dark:text-rose-400 font-medium">Erros</p>
+                        <p id="resWrongCount" class="text-2xl font-black text-rose-600 dark:text-rose-400">0</p>
+                    </div>
+                    <div
+                        class="p-4 bg-brand-50 dark:bg-brand-950/40 rounded-2xl border border-brand-200 dark:border-brand-800/40">
+                        <p class="text-xs text-brand-600 dark:text-brand-400 font-medium">Aproveitamento</p>
+                        <p id="resAccuracyPercent" class="text-2xl font-black text-brand-600 dark:text-brand-400">0%</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 pt-2">
+                    <button id="toggleReviewModeBtn"
+                        class="px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow transition-colors flex items-center space-x-2">
+                        <i class="fa-solid fa-list-check"></i>
+                        <span>Revisar Todas as Questões</span>
+                    </button>
+                    <button id="restartFromResultBtn"
+                        class="px-6 py-3 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-100 font-bold rounded-xl transition-colors flex items-center space-x-2">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>Reiniciar Simulado</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown by Level -->
+            <div
+                class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-brand-500"></i> Desempenho por Nível de Dificuldade
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Easy Level Box -->
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-emerald-700 dark:text-emerald-400 text-sm">Nível
+                                Fácil</span>
+                            <span id="easyAccuracyText"
+                                class="text-xs font-bold bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 px-2 py-0.5 rounded-full">0%</span>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p>Respondidas: <span id="easyAnsweredCount" class="font-semibold">0</span></p>
+                            <p>Acertos: <span id="easyCorrectCount" class="font-semibold text-emerald-600">0</span> |
+                                Erros: <span id="easyWrongCount" class="font-semibold text-rose-600">0</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Medium Level Box -->
+                    <div
+                        class="p-4 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-amber-700 dark:text-amber-400 text-sm">Nível Médio</span>
+                            <span id="mediumAccuracyText"
+                                class="text-xs font-bold bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 px-2 py-0.5 rounded-full">0%</span>
+                        </div>
+                        <div class="text-xs text-slate-600 dark:text-slate-300 space-y-1">
+                            <p>Respondidas: <span id="mediumAnsweredCount" class="font-semibold">0</span></p>
+                            <p>Acertos: <span id="mediumCorrectCount" class="font-semibold text-emerald-600">0</span> |
+                                Erros: <span id="mediumWrongCount" class="font-semibold text-rose-600">0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown by Topic -->
+            <div
+                class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 space-y-4">
+                <h3 class="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-chart-bar text-brand-500"></i> Desempenho por Assunto / Tópico do Edital
+                </h3>
+                <div id="topicPerformanceGrid" class="space-y-3">
+                    <!-- Dinamicamente preenchido com barras de progresso por assunto -->
+                </div>
+            </div>
+
+            <!-- Review Questions List View -->
+            <div id="reviewQuestionsContainer" class="hidden space-y-6 pt-4">
+                <div class="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-700">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass text-brand-500"></i> Revisão de Questões
+                    </h3>
+                    <div class="flex gap-2">
+                        <button id="filterReviewAll"
+                            class="px-3 py-1 text-xs font-medium bg-brand-600 text-white rounded-lg">Todas</button>
+                        <button id="filterReviewWrong"
+                            class="px-3 py-1 text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-200">Apenas
+                            Erros</button>
+                    </div>
+                </div>
+                <div id="reviewList" class="space-y-4">
+                    <!-- Cards de revisão de todas as questões respondidas -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Modal Dialog (Replaces native alert/confirm) -->
+    <div id="customModal"
+        class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in">
+        <div
+            class="bg-white dark:bg-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-4">
+            <div class="flex items-center space-x-3 text-amber-500">
+                <div
+                    class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-xl">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 id="modalTitle" class="font-bold text-lg text-slate-900 dark:text-white">Confirmação</h3>
+            </div>
+            <p id="modalMessage" class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Tem certeza que deseja realizar esta ação?
+            </p>
+            <div class="flex justify-end space-x-3 pt-2">
+                <button id="modalCancelBtn"
+                    class="px-4 py-2 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-xl transition-colors">
+                    Cancelar
+                </button>
+                <button id="modalConfirmBtn"
+                    class="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition-colors">
+                    Confirmar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * BANCO DE DADOS COMPLETO - 100 QUESTÕES OBJETIVAS
+         * Baseado estritamente no documento "Revisão AV1 - Constitucional I"
+         */
+        const QUESTOES_BASE = [
+            // ==========================================
+            // TOPIC 1: Direito Constitucional e Noções Introdutórias (8 questões)
+            // ==========================================
+            {
+                id: 1,
+                nivel: "Fácil",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "O Direito Constitucional é tradicionalmente enquadrado em qual ramo do direito e qual é o seu objeto principal de estudo?",
+                alternativas: {
+                    A: "Direito Privado, tendo por objeto as relações contratuais e patrimoniais entre particulares.",
+                    B: "Direito Público Fundamental, tendo por objeto a organização e o funcionamento do Estado e suas estruturas políticas.",
+                    C: "Direito Internacional, voltado à regulação de tratados e organismos supranacionais.",
+                    D: "Direito Social Autônomo, focado na mediação de conflitos entre sindicatos e empresas."
+                },
+                resposta: "B",
+                explicacao: "Conforme José Afonso da Silva, o Direito Constitucional integra o Direito Público Fundamental porque trata da organização, do funcionamento do Estado, de seus elementos primários e da estrutura política."
+            },
+            {
+                id: 2,
+                nivel: "Fácil",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "Em qual data histórica foi promulgada a atual Constituição da República Federativa do Brasil?",
+                alternativas: {
+                    A: "15 de Novembro de 1889.",
+                    B: "25 de Março de 1824.",
+                    C: "5 de Outubro de 1988.",
+                    D: "17 de Outubro de 1969."
+                },
+                resposta: "C",
+                explicacao: "No Brasil, o estudo do Direito Constitucional contemporâneo volta-se à Constituição Federal promulgada em 5 de outubro de 1988."
+            },
+            {
+                id: 3,
+                nivel: "Médio",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "Um estudante afirma que o Direito Constitucional pertence ao Direito Privado porque garante a propriedade individual. Analisando a dogmática constitucional, a afirmação está correta?",
+                alternativas: {
+                    A: "Sim, pois os direitos individuais se sobrepõem à estrutura estatal.",
+                    B: "Incorreta, pois se trata de Direito Público Fundamental por disciplinar a estrutura política e limites do poder do Estado.",
+                    C: "Correta, pois a Constituição regula primordialmente relações civis entre cidadãos.",
+                    D: "Incorreta, pois pertence ao ramo do Direito Processual Constitucional."
+                },
+                resposta: "B",
+                explicacao: "O Direito Constitucional integra o Direito Público e é qualificado como Fundamental por fundamentar todo o ordenamento jurídico e estruturar o Estado."
+            },
+            {
+                id: 4,
+                nivel: "Fácil",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "A palavra-chave que resume o objeto central do Direito Constitucional é:",
+                alternativas: {
+                    A: "Constituição e organização e funcionamento do Estado.",
+                    B: "Códigos e regulação de penas criminais.",
+                    C: "Normas administrativas e licitações públicas.",
+                    D: "Relações comerciais e livre concorrência."
+                },
+                resposta: "A",
+                explicacao: "O resumo conceitual do material aponta: Direito Constitucional = Constituição + organização e funcionamento do Estado."
+            },
+            {
+                id: 5,
+                nivel: "Médio",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "Qual das alternativas expressa a função primária do estudo da Lei Fundamental no âmbito da ciência jurídica?",
+                alternativas: {
+                    A: "Uniformizar os procedimentos contratuais bancários.",
+                    B: "Fixar as regras de competência exclusiva do Poder Judiciário em matéria penal.",
+                    C: "Estudar as bases da estrutura política, os elementos constitutivos e os limites do poder estatal.",
+                    D: "Analisar as sanções disciplinares aplicáveis aos servidores civis."
+                },
+                resposta: "C",
+                explicacao: "A Constituição disciplina a organização do Estado, aquisição e exercício do poder, órgãos estatais, limites do poder e direitos fundamentais."
+            },
+            {
+                id: 6,
+                nivel: "Fácil",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "No contexto brasileiro, a Constituição vigente de 1988 é fruto de qual tipo de ato jurídico-político?",
+                alternativas: {
+                    A: "Outorga unilateral da junta militar.",
+                    B: "Promulgação por Assembleia Nacional Constituinte legítima.",
+                    C: "Decreto heterônomo imposto por organismo internacional.",
+                    D: "Revolução armada sem participação popular."
+                },
+                resposta: "B",
+                explicacao: "A CF/88 foi promulgada em 5 de outubro de 1988 por uma Assembleia Nacional Constituinte com participação popular."
+            },
+            {
+                id: 7,
+                nivel: "Médio",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "Por que se afirma que as normas constitucionais condicionam a validade de todo o ordenamento jurídico infraconstitucional?",
+                alternativas: {
+                    A: "Porque a Constituição possui supremacia formal e material sobre as demais leis.",
+                    B: "Porque todas as leis devem ser escritas pelo próprio Supremo Tribunal Federal.",
+                    C: "Porque a Constituição só pode ser alterada por aprovação unânime do Congresso.",
+                    D: "Porque o Poder Executivo tem a atribuição de anular leis contrárias à Constituição."
+                },
+                resposta: "A",
+                explicacao: "A Constituição ocupa o ápice da pirâmide normativa, servindo como fundamento de validade para todas as leis e atos normativos inferiores."
+            },
+            {
+                id: 8,
+                nivel: "Fácil",
+                assunto: "Direito Constitucional e Noções Introdutórias",
+                pergunta: "Qual é o elemento definidor do Direito Público Fundamental segundo a doutrina de José Afonso da Silva?",
+                alternativas: {
+                    A: "O estudo exclusivo do Direito Financeiro e Orçamentário.",
+                    B: "A regulação dos direitos de família e sucessões.",
+                    C: "Tratar da organização e funcionamento do Estado, de seus elementos primários e da estrutura política.",
+                    D: "A primazia da autonomia privada absoluta sobre a ordem pública."
+                },
+                resposta: "C",
+                explicacao: "José Afonso da Silva conceitua o Direito Constitucional como Direito Público Fundamental justamente por cuidar da estrutura primária do Estado."
+            },
+
+            // ==========================================
+            // TOPIC 2: Constitucionalismo Antigo (12 questões)
+            // ==========================================
+            {
+                id: 9,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Qual é a essência conceitual do Constitucionalismo enquanto movimento histórico e político?",
+                alternativas: {
+                    A: "A criação de leis penais rígidas para combater a criminalidade.",
+                    B: "A limitação e o controle do poder político por meio da Constituição, protegendo direitos fundamentais.",
+                    C: "A unificação dos poderes sob a chefia suprema do Poder Executivo.",
+                    D: "A permissão para que os governantes alterem as leis sem restrições institucionais."
+                },
+                resposta: "B",
+                explicacao: "Constitucionalismo visa precipuamente limitar e controlar o poder político por meio de uma norma suprema e assegurar a garantia de direitos."
+            },
+            {
+                id: 10,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "No Constitucionalismo Antigo entre os hebreus, como se operava o controle das condutas e a limitação do poder governamental?",
+                alternativas: {
+                    A: "Por meio da Assembleia da Ekklésia e do voto direto dos cidadãos.",
+                    B: "Por meio de normas escritas de um Parlamento laico.",
+                    C: "Por meio de dogmas religiosos e da fiscalização dos profetas quanto aos limites bíblicos.",
+                    D: "Pelo controle ex officio exercido pelo Eforato espartano."
+                },
+                resposta: "C",
+                explicacao: "Na experiência judaica/hebraica, os dogmas religiosos limitavam o governante, e os profetas fiscalizavam os atos que violavam os preceitos bíblicos."
+            },
+            {
+                id: 11,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "A democracia direta e a participação dos cidadãos na Assembleia (Ekklésia) são marcas de qual experiência antiga?",
+                alternativas: {
+                    A: "Ateniense.",
+                    B: "Espartana.",
+                    C: "Romana.",
+                    D: "Hebreia."
+                },
+                resposta: "A",
+                explicacao: "Atenas destacou-se pela democracia direta, participação cidadã na Ekklésia e pela ação pública denominada graphe paranomon."
+            },
+            {
+                id: 12,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "A graphe paranomon, mecanismo conhecido no Direito Ateniense, é doutrinariamente apontada como antecedente remoto de qual instituto moderno?",
+                alternativas: {
+                    A: "Do processo de impeachment presencial.",
+                    B: "Do controle de constitucionalidade de leis e atos incompatíveis com a ordem vigente.",
+                    C: "Da ação civil pública para proteção ambiental.",
+                    D: "Do recurso extraordinário para o STF."
+                },
+                resposta: "B",
+                explicacao: "A graphe paranomon permitia punir quem propusesse leis contrárias às leis fundamentais da cidade, sendo vista como antecedente do controle de constitucionalidade."
+            },
+            {
+                id: 13,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "A organização política militarista, a diarquia e o condicionamento da liberdade individual à defesa do território caracterizavam qual cidade-estado?",
+                alternativas: {
+                    A: "Roma.",
+                    B: "Atenas.",
+                    C: "Esparta.",
+                    D: "Jerusalém."
+                },
+                resposta: "C",
+                explicacao: "Esparta possuía estrutura militarista, governada por diarquia, Conselho de Anciãos, Assembleia e Eforato, sem pluralidade democrática ampla."
+            },
+            {
+                id: 14,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Em Roma, durante o período Republicano, qual foi a principal contribuição ao desenvolvimento do constitucionalismo?",
+                alternativas: {
+                    A: "A instituição de uma Constituição codificada e super-rígida.",
+                    B: "A criação de mecanismos institucionais de freios e contrapesos entre os órgãos políticos.",
+                    C: "O estabelecimento de direitos sociais de segunda dimensão.",
+                    D: "A adoração exclusiva do texto bíblico como código civil."
+                },
+                resposta: "B",
+                explicacao: "A Roma Republicana contribuiu com o amadurecimento dos freios e contrapesos (checks and balances) entre os magistrados, o Senado e as Assembleias."
+            },
+            {
+                id: 15,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Associe corretamente o povo antigo à sua palavra-chave representativa conforme o roteiro de estudo:",
+                alternativas: {
+                    A: "Atenas — Militarismo.",
+                    B: "Esparta — Democracia direta.",
+                    C: "Hebreus — Religião.",
+                    D: "Roma — Dogmas proféticos."
+                },
+                resposta: "C",
+                explicacao: "A associação correta é: Hebreus = Religião; Atenas = Democracia direta; Esparta = Militarismo; Roma = Freios e Contrapesos."
+            },
+            {
+                id: 16,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "É correto afirmar que a simples existência de uma Constituição formal em um país garante que haja Constitucionalismo?",
+                alternativas: {
+                    A: "Sim, pois qualquer Constituição escrita gera controle de constitucionalidade.",
+                    B: "Não, pois a ideia central é utilizar normas e instituições para efetivamente limitar o poder e proteger liberdades.",
+                    C: "Sim, pois o conceito moderno exige apenas a codificação das leis.",
+                    D: "Não, porque só existe constitucionalismo em regimes de monarquia parlamentar."
+                },
+                resposta: "B",
+                explicacao: "Atenção destacada no texto: a ideia central não é apenas ter um texto chamado Constituição, mas limitar o poder e proteger a liberdade humana."
+            },
+            {
+                id: 17,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "O Eforato e o Conselho de Anciãos compunham a estrutura política de qual experiência da Antiguidade?",
+                alternativas: {
+                    A: "Esparta.",
+                    B: "Atenas.",
+                    C: "Roma Imperial.",
+                    D: "Grécia de Péricles."
+                },
+                resposta: "A",
+                explicacao: "O Eforato, a Diarquia, o Conselho de Anciãos e a Assembleia formavam os órgãos políticos de Esparta."
+            },
+            {
+                id: 18,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Diferenciando Atenas de Esparta no constitucionalismo antigo, é correto afirmar que:",
+                alternativas: {
+                    A: "Esparta valorizava a pluralidade democrática e os debates na praça pública.",
+                    B: "Atenas priorizava o treinamento militar obrigatório em detrimento da Ekklésia.",
+                    C: "Atenas destacou-se pela democracia direta dos cidadãos, enquanto Esparta tinha viés militarista e focado na defesa territorial.",
+                    D: "Ambas adotavam a monarquia teocrática absolutista."
+                },
+                resposta: "C",
+                explicacao: "Atenas focava na democracia direta e cidadania na Ekklésia; Esparta mantinha rígida estrutura militarista."
+            },
+            {
+                id: 19,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Qual das seguintes alternativas NÃO representa uma característica do Constitucionalismo Antigo?",
+                alternativas: {
+                    A: "Presença de textos constitucionais escritos e rígidos em linguagem técnica contemporânea.",
+                    B: "Limitação do governante por valores religiosos entre os hebreus.",
+                    C: "Participação em praça pública dos cidadãos em Atenas.",
+                    D: "Controle mútuo de órgãos políticos na República Romana."
+                },
+                resposta: "A",
+                explicacao: "As Constituições escritas e rígidas nos moldes atuais surgiram apenas no Constitucionalismo Moderno (século XVIII)."
+            },
+            {
+                id: 20,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Antigo",
+                pergunta: "Se uma questão de concurso afirmar que o constitucionalismo nasceu apenas com a Constituição dos EUA em 1787, você deve julgar a afirmação como:",
+                alternativas: {
+                    A: "Correta, pois antes de 1787 não existiam leis nem normas de organização política.",
+                    B: "Incorreta, pois o constitucionalismo engloba experiências históricas antigas (Hebreus, Gregos, Romanos) de limitação do poder.",
+                    C: "Correta, porque o termo Constituição foi inventado por George Washington.",
+                    D: "Incorreta, porque o constitucionalismo nasceu na Revolução Russa."
+                },
+                resposta: "B",
+                explicacao: "O constitucionalismo é um processo histórico evolutivo que possui raízes antigas na busca pela limitação do poder público."
+            },
+
+            // ==========================================
+            // TOPIC 3: Constitucionalismo Medieval (8 questões)
+            // ==========================================
+            {
+                id: 21,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Qual é considerado o principal marco do constitucionalismo medieval, assinado no ano de 1215?",
+                alternativas: {
+                    A: "Declaração dos Direitos do Homem e do Cidadão.",
+                    B: "Magna Carta do Rei João Sem-Terra.",
+                    C: "Constituição da Filadélfia.",
+                    D: "Pacto de San José da Costa Rica."
+                },
+                resposta: "B",
+                explicacao: "A Magna Carta de 1215 é o marco central medieval, celebrado entre o Rei João Sem-Terra e bispos/barões ingleses."
+            },
+            {
+                id: 22,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "A Magna Carta de 1215 representa o nascimento absoluto do constitucionalismo? Analise a afirmação com base no roteiro.",
+                alternativas: {
+                    A: "Sim, pois antes dela não havia qualquer limitação ao poder político no mundo.",
+                    B: "Não, pois já existiam experiências anteriores de limitação do poder (hebreus, gregos, romanos); ela é marco do período medieval.",
+                    C: "Sim, pois foi a primeira Constituição outorgada democrática aprovada por sufrágio universal.",
+                    D: "Não, porque a Magna Carta vigorou apenas na França pós-revolucionária."
+                },
+                resposta: "B",
+                explicacao: "Conforme o alerta técnico: a Magna Carta não é o nascimento absoluto do constitucionalismo, mas sim um importante marco medieval de limitação do poder monárquico."
+            },
+            {
+                id: 23,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Entre os institutos modernos cujos antecedentes remontam à Magna Carta de 1215, destacam-se:",
+                alternativas: {
+                    A: "O direito de greve e a previdência social pública.",
+                    B: "O devido processo legal, a liberdade de locomoção e a proteção da propriedade.",
+                    C: "A supremacia dos tratados internacionais sobre a Constituição.",
+                    D: "O sufrágio universal feminino e o plebiscito."
+                },
+                resposta: "B",
+                explicacao: "A Magna Carta de 1215 é matriz histórica de garantias como devido processo legal (due process of law), propriedade e liberdade de locomoção."
+            },
+            {
+                id: 24,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Qual era a natureza política do pacto firmado na Magna Carta de 1215?",
+                alternativas: {
+                    A: "Uma imposição popular decorrente de greve operária urbana.",
+                    B: "Um acordo/estatuto entre o Monarca e a nobreza (barões e bispos) impondo limites ao arbítrio real.",
+                    C: "Um tratado internacional firmado entre a Inglaterra e o Sacro Império Romano.",
+                    D: "Uma norma puramente religiosa ditada pelo Vaticano."
+                },
+                resposta: "B",
+                explicacao: "Tratou-se de pacto estamental em que a nobreza e o clero forçaram o rei a aceitar limites no lançamento de tributos e na privação de liberdade."
+            },
+            {
+                id: 25,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "A cláusula segundo a qual nenhum homem livre pode ser detido ou preso senão pelo julgamento legítimo de seus pares refere-se a qual garantia?",
+                alternativas: {
+                    A: "Devido processo legal.",
+                    B: "Liberdade de imprensa.",
+                    C: "Direito de reunião ilimitado.",
+                    D: "Inviolabilidade de domicílio bancário."
+                },
+                resposta: "A",
+                explicacao: "É a gênese histórica do devido processo legal (law of the land / due process of law)."
+            },
+            {
+                id: 26,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Por que a Magna Carta de 1215 é qualificada como um pacto de limitação de poder estamental?",
+                alternativas: {
+                    A: "Porque protegia apenas os camponeses e servos da gleba.",
+                    B: "Porque beneficiava diretamente os barões e membros da Igreja, contendo o absolutismo monárquico.",
+                    C: "Porque aboliu totalmente a figura do Rei na Inglaterra.",
+                    D: "Porque permitia que o Monarca alterasse as leis de forma autocrática."
+                },
+                resposta: "B",
+                explicacao: "A limitação visava conter os abusos do Rei frente aos privilégios e direitos da nobreza e do clero."
+            },
+            {
+                id: 27,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Quem foi o monarca inglês que assinou a Magna Carta em 1215?",
+                alternativas: {
+                    A: "Henrique VIII.",
+                    B: "João Sem-Terra (King John).",
+                    C: "Guilherme, o Conquistador.",
+                    D: "Carlos I."
+                },
+                resposta: "B",
+                explicacao: "O monarca inglês forçado a assinar a Magna Carta foi o Rei João Sem-Terra."
+            },
+            {
+                id: 28,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Medieval",
+                pergunta: "Em uma prova de concurso, se assinalado que a Magna Carta de 1215 consagrou o Estado Social de Direito, a afirmativa estará:",
+                alternativas: {
+                    A: "Correta, pois criou aposentadorias para os barões.",
+                    B: "Incorreta, pois consagra antecedentes de liberdades e limites ao poder, enquanto o Estado Social surgiu no século XX.",
+                    C: "Correta, pois instituiu a igualdade material ampla no feudalismo.",
+                    D: "Incorreta, porque a Magna Carta tratou exclusivamente do direito de propriedade de bens imóveis marítimos."
+                },
+                resposta: "B",
+                explicacao: "A Magna Carta traz garantias liberais/estamentais básicas contra o arbítrio. O Estado Social só desponta no século XX."
+            },
+
+            // ==========================================
+            // TOPIC 4: Constitucionalismo Moderno (12 questões)
+            // ==========================================
+            {
+                id: 29,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "O Constitucionalismo Moderno consolida fundamentalmente qual ideia de Constituição?",
+                alternativas: {
+                    A: "Constituição não escrita baseada apenas em tradições orais.",
+                    B: "Constituição escrita e rígida, organizada para limitar juridicamente o poder estatal.",
+                    C: "Constituição flexível alterável por decreto executivo simples.",
+                    D: "Constituição semântica destinada a manter governantes no poder."
+                },
+                resposta: "B",
+                explicacao: "O Constitucionalismo Moderno consolida a Constituição escrita, rígida, formal e garantidora de direitos."
+            },
+            {
+                id: 30,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Quais são os dois grandes marcos históricos ocidentais do Constitucionalismo Moderno no final do século XVIII?",
+                alternativas: {
+                    A: "A Magna Carta de 1215 e o Tratado de Versalhes de 1919.",
+                    B: "A Constituição dos Estados Unidos de 1787 e a Constituição Francesa de 1791.",
+                    C: "A Constituição de Weimar de 1919 e a Constituição do México de 1917.",
+                    D: "A Declaração das Nações Unidas de 1948 e a CF/88."
+                },
+                resposta: "B",
+                explicacao: "Os dois pilares clássicos do constitucionalismo moderno são a Constituição dos EUA (1787) e a Constituição Francesa (1791)."
+            },
+            {
+                id: 31,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Qual foi o contexto histórico de formação da Constituição dos Estados Unidos da América de 1787?",
+                alternativas: {
+                    A: "Revolta das 13 colônias contra a metrópole inglesa e busca pela federação.",
+                    B: "Oposição ao absolutismo francês e queda da Bastilha.",
+                    C: "Revolução Industrial e lutas sindicais trabalhistas.",
+                    D: "Fim do imperativismo romano."
+                },
+                resposta: "A",
+                explicacao: "A experiência norte-americana decorreu do processo de independência e união das 13 colônias americanas contra a Grã-Bretanha."
+            },
+            {
+                id: 32,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Sobre a proteção de direitos fundamentais na Constituição dos EUA de 1787, é correto afirmar:",
+                alternativas: {
+                    A: "Possuía uma extensa declaração de direitos sociais em seu texto original de 1787.",
+                    B: "O rol de direitos fundamentais não constava do texto originário de 1787, sendo incorporado posteriormente por Emendas (Bill of Rights).",
+                    C: "Rejeitava categoricamente os direitos individuais de liberdade.",
+                    D: "Foi precedida pela Declaração dos Direitos do Homem de 1789."
+                },
+                resposta: "B",
+                explicacao: "O texto original de 1787 focou na estrutura do Estado federal. O rol de direitos veio logo após com as dez primeiras emendas (Bill of Rights)."
+            },
+            {
+                id: 33,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "A Declaração dos Direitos do Homem e do Cidadão de 1789 antecedeu a publicação de qual documento constitucional?",
+                alternativas: {
+                    A: "Constituição Francesa de 1791.",
+                    B: "Constituição dos EUA de 1787.",
+                    C: "Magna Carta de 1215.",
+                    D: "Emenda Constitucional nº 1/1969."
+                },
+                resposta: "A",
+                explicacao: "Na França, a Declaração de Direitos veio em 1789, antecedendo a Constituição do país editada em 1791."
+            },
+            {
+                id: 34,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Em termos de forma de Estado e governo, a Constituição Norte-Americana de 1787 consagrou originalmente:",
+                alternativas: {
+                    A: "Estado Unitário e Monarquia Parlamentar.",
+                    B: "Federalismo por agregação, tripartição de poderes e Presidencialismo.",
+                    C: "Confederação dissolvedora e Parlamentarismo puro.",
+                    D: "Anarquia federativa e Colegiado Supremo."
+                },
+                resposta: "B",
+                explicacao: "A Constituição dos EUA inovou ao instituir a federação (por agregação das ex-colônias), a separação dos poderes e o sistema presidencialista."
+            },
+            {
+                id: 35,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "No Constitucionalismo Francês de 1791, qual órgão detinha proeminência política fundada na ideia de soberania nacional?",
+                alternativas: {
+                    A: "O Poder Judiciário.",
+                    B: "O Poder Legislativo (Assembleia).",
+                    C: "O Imperador.",
+                    D: "O Conselho do Rei."
+                },
+                resposta: "B",
+                explicacao: "O modelo francês revolucionário marcou-se pelo legicentrismo e pela supremacia do Poder Legislativo."
+            },
+            {
+                id: 36,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Compare os modelos constitucionalistas dos EUA (1787) e da França (1791):",
+                alternativas: {
+                    A: "O modelo americano priorizou a supremacia do Legislativo, enquanto o francês criou o presidencialismo.",
+                    B: "O americano fundou o federalismo por agregação e rigidez; o francês combateu o absolutismo com foco na legalidade e soberania popular.",
+                    C: "Ambos rejeitavam a ideia de Constituições escritas.",
+                    D: "O modelo francês criou o controle difuso de constitucionalidade antes dos EUA."
+                },
+                resposta: "B",
+                explicacao: "Conforme o quadro comparativo do material: EUA = rigidez, federalismo, presidencialismo; França = oposição ao absolutismo, legalidade, Assembleia."
+            },
+            {
+                id: 37,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Qual o principal valor protegido no primeiro momento do Constitucionalismo Moderno?",
+                alternativas: {
+                    A: "A liberdade individual contra as ingerências abusivas do Estado.",
+                    B: "A prestação estatal de saúde e assistência universal.",
+                    C: "A preservação do meio ambiente ecologicamente equilibrado.",
+                    D: "A propriedade coletiva dos meios de produção."
+                },
+                resposta: "A",
+                explicacao: "O constitutionalismo moderno inicial (fase liberal) tinha no centro a proteção das liberdades individuais (1ª dimensão)."
+            },
+            {
+                id: 38,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "O federalismo 'por agregação' observado nos EUA ocorreu porque:",
+                alternativas: {
+                    A: "Um Estado unitário centralizado resolveu se dividir em vários estados membros.",
+                    B: "Estados soberanos e independentes decidiram se unir para formar um único Estado Federal e soberano.",
+                    C: "O Rei da Inglaterra determinou a divisão do território por decreto.",
+                    D: "A França doou os seus territórios colônias aos colonos americanos."
+                },
+                resposta: "B",
+                explicacao: "No federalismo por agregação (centripeto), as antigas colônias independentes agregaram-se para formar a federação."
+            },
+            {
+                id: 39,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "A ideia de 'Rigidez Constitucional' consolidada no Constitucionalismo Moderno significa que:",
+                alternativas: {
+                    A: "A Constituição não pode sofrer nenhuma alteração ao longo do tempo.",
+                    B: "O texto constitucional exige um processo legislativo mais rigoroso e complexo para modificação do que as leis ordinárias.",
+                    C: "Apenas o Presidente pode mudar o texto da Constituição.",
+                    D: "A Constituição caduca automaticamente após 10 anos."
+                },
+                resposta: "B",
+                explicacao: "Rigidez significa que o processo de emenda/reforma constitucional é mais dificultoso do que o processo de elaboração das leis comuns."
+            },
+            {
+                id: 40,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Moderno",
+                pergunta: "Uma questão de concurso indaga: 'Na França revolucionária de 1791, a Declaração de Direitos veio como anexo formulado anos depois da aprovação da Constituição.' Esta afirmação está:",
+                alternativas: {
+                    A: "Correta, repetindo exatamente a história norte-americana.",
+                    B: "Incorreta, pois a Declaração dos Direitos do Homem e do Cidadão (1789) ANTECEDEU a Constituição francesa de 1791.",
+                    C: "Correta, pois a França só adotou direitos em 1948.",
+                    D: "Incorreta, porque a França nunca possuiu declaração de direitos escrita."
+                },
+                resposta: "B",
+                explicacao: "Na França, a Declaração é de 1789 e a Constituição de 1791 (ao contrário dos EUA, onde a Constituição foi em 1787 e o Bill of Rights veio por emendas posteriores)."
+            },
+
+            // ==========================================
+            // TOPIC 5: Constitucionalismo Liberal e Social (12 questões)
+            // ==========================================
+            {
+                id: 41,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "O Constitucionalismo Liberal (ou Clássico) tem como traço marcante quanto à atuação do Estado:",
+                alternativas: {
+                    A: "O prestacionismo positivo e a intervenção massiva na economia.",
+                    B: "O abstencionismo estatal, ou seja, uma atuação restrita baseada no 'deixar fazer, deixar passar'.",
+                    C: "A estatização de todas as indústrias e propriedades privadas.",
+                    D: "A obrigatoriedade de fornecimento de assistência social universal."
+                },
+                resposta: "B",
+                explicacao: "O modelo liberal prega o abstencionismo/absenteísmo do Estado (não fazer), garantindo a liberdade individual."
+            },
+            {
+                id: 42,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Qual valor supremo e dimensão de direitos fundamentais estão associados ao Constitucionalismo Social?",
+                alternativas: {
+                    A: "Liberdade individual — Direitos de 1ª dimensão.",
+                    B: "Igualdade material e proteção social — Direitos de 2ª dimensão.",
+                    C: "Fraternidade e meio ambiente — Direitos de 3ª dimensão.",
+                    D: "Globalização e informática — Direitos de 4ª dimensão."
+                },
+                resposta: "B",
+                explicacao: "Constitucionalismo Social foca na igualdade material, direitos prestacionais e na 2ª dimensão de direitos (direitos sociais, econômicos e culturais)."
+            },
+            {
+                id: 43,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Diferencie a conduta exigida do Estado no modelo Liberal em comparação ao modelo Social:",
+                alternativas: {
+                    A: "No Liberal exige-se atuação positiva; no Social exige-se abstenção.",
+                    B: "No Liberal exige-se abstenção estatal (dever de não-fazer); no Social exige-se prestação ativa e positiva (dever de fazer).",
+                    C: "Ambos exigem que o Estado não intervenha sob nenhuma hipótese.",
+                    D: "Ambos exigem o fim da propriedade privada."
+                },
+                resposta: "B",
+                explicacao: "Liberal = Liberdade + Abstenção | Social = Igualdade Material + Atuação Positiva/Prestacional."
+            },
+            {
+                id: 44,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Surgido no início do século XX (com destaques para as Constituições do México de 1917 e de Weimar de 1919), o Constitucionalismo Social visava responder a qual problema?",
+                alternativas: {
+                    A: "Ao absolutismo monárquico de Luís XIV.",
+                    B: "Às profundas desigualdades sociais criadas pela Revolução Industrial e pelo modelo liberal abstencionista.",
+                    C: "À proliferação do neoconstitucionalismo e das redes sociais.",
+                    D: "À invasão napoleônica na Europa."
+                },
+                resposta: "B",
+                explicacao: "O modelo social surge para combater as mazelas sociais e a miséria geradas pela ausência de regulamentação e proteção estatal no apogeu do capitalismo liberal."
+            },
+            {
+                id: 45,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Os direitos civis e políticos (como direito à vida, liberdade, propriedade e voto) pertencem a qual dimensão de direitos?",
+                alternativas: {
+                    A: "1ª Dimensão.",
+                    B: "2ª Dimensão.",
+                    C: "3ª Dimensão.",
+                    D: "4ª Dimensão."
+                },
+                resposta: "A",
+                explicacao: "1ª Dimensão = Direitos civis e políticos (liberdades formais / não-fazer do Estado / fase Liberal)."
+            },
+            {
+                id: 46,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Direitos ao trabalho, saúde, educação, previdência social e moradia enquadram-se precipuamente na:",
+                alternativas: {
+                    A: "1ª Dimensão (Liberal).",
+                    B: "2ª Dimensão (Social).",
+                    C: "3ª Dimensão (Transindividual).",
+                    D: "Fase de transição absolutista."
+                },
+                resposta: "B",
+                explicacao: "Direitos sociais, culturais e econômicos que exigem prestações públicas ativas pertencem à 2ª dimensão."
+            },
+            {
+                id: 47,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Assinale a opção que resume com perfeição o macete das duas fases (Liberal vs. Social) presente no material pedagógico:",
+                alternativas: {
+                    A: "Liberal = igualdade + prestação | Social = liberdade + abstenção.",
+                    B: "Liberal = liberdade + abstenção | Social = igualdade material + prestação estatal.",
+                    C: "Liberal = fraternidade + meio ambiente | Social = autoritarismo + repressão.",
+                    D: "Liberal = direitos de 3ª dimensão | Social = direitos de 1ª dimensão."
+                },
+                resposta: "B",
+                explicacao: "Palavra-chave do material: Liberal = liberdade + abstenção | Social = igualdade material + prestação estatal."
+            },
+            {
+                id: 48,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Uma lei que institui seguro-desemprego e jornada máxima de trabalho é fruto de qual concepção constitucionalista?",
+                alternativas: {
+                    A: "Liberal Clássica.",
+                    B: "Social.",
+                    C: "Absoluta Monárquica.",
+                    D: "Antiga Ateniense."
+                },
+                resposta: "B",
+                explicacao: "A intervenção na economia para proteger a parte hipossuficiente (trabalhador) mediante direitos sociais é marca cristalina do Constitucionalismo Social."
+            },
+            {
+                id: 49,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Qual das seguintes alternativas representa um direito típico de Primeira Dimensão?",
+                alternativas: {
+                    A: "Direito à inviolabilidade de domicílio.",
+                    B: "Direito ao fornecimento gratuito de medicamentos caros.",
+                    C: "Direito ao meio ambiente ecologicamente equilibrado.",
+                    D: "Direito ao patrimônio genético protegido."
+                },
+                resposta: "A",
+                explicacao: "A inviolabilidade do domicílio é uma garantia individual clássica de liberdade contra a intromissão estatal (1ª dimensão)."
+            },
+            {
+                id: 50,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "O conceito de 'Igualdade Formal' difere do conceito de 'Igualdade Material' pois:",
+                alternativas: {
+                    A: "A formal exige tratar todos igualmente na lei; a material exige tratar desigualmente os desiguais na medida de suas desigualdades.",
+                    B: "A formal é prestacional; a material é abstencionista.",
+                    C: "A formal surgiu no neoconstitucionalismo; a material surgiu em Esparta.",
+                    D: "São sinônimos exatos e indistinguíveis no Direito Constitucional."
+                },
+                resposta: "A",
+                explicacao: "A igualdade formal (Liberal) assegura o tratamento isonômico perante a lei. A igualdade material (Social) busca equilibrar as disparidades fáticas."
+            },
+            {
+                id: 51,
+                nivel: "Fácil",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "O lema da Revolução Francesa 'Liberdade, Igualdade, Fraternidade' associa-se, respectivamente, às dimensões de direitos:",
+                alternativas: {
+                    A: "1ª, 2ª e 3ª Dimensões.",
+                    B: "3ª, 2ª e 1ª Dimensões.",
+                    C: "2ª, 1ª e 3ª Dimensões.",
+                    D: "1ª, 3ª e 2ª Dimensões."
+                },
+                resposta: "A",
+                explicacao: "Liberdade (1ª dimensão / Liberal), Igualdade (2ª dimensão / Social) e Fraternidade/Solidariedade (3ª dimensão / Contemporânea)."
+            },
+            {
+                id: 52,
+                nivel: "Médio",
+                assunto: "Constitucionalismo Liberal e Social",
+                pergunta: "Em um concurso, se perguntado qual modelo constitucionalista deu prioridade máxima ao absenteísmo estatal e à livre iniciativa sem regulação social, a resposta é:",
+                alternativas: {
+                    A: "Constitucionalismo Social.",
+                    B: "Neoconstitucionalismo.",
+                    C: "Constitucionalismo Liberal.",
+                    D: "Constitucionalismo Eclético."
+                },
+                resposta: "C",
+                explicacao: "O modelo liberal absolutizou a liberdade e a livre iniciativa sob o dogma da não intervenção estatal no domínio social."
+            },
+
+            // ==========================================
+            // TOPIC 6: Neoconstitucionalismo / Contemporâneo (12 questões)
+            // ==========================================
+            {
+                id: 53,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Em qual contexto histórico o Neoconstitucionalismo (ou Constitucionalismo Contemporâneo) se desenvolve com maior intensidade?",
+                alternativas: {
+                    A: "Durante a Idade Média, com a queda do Império Romano.",
+                    B: "No período posterior à Segunda Guerra Mundial e redemocratização dos países.",
+                    C: "Na Revolução Gloriosa de 1688.",
+                    D: "No auge do positivismo legalista do século XIX."
+                },
+                resposta: "B",
+                explicacao: "O Neoconstitucionalismo surge na Europa pós-Segunda Guerra e na América Latina nos processos de redemocratização (como no Brasil de 1988)."
+            },
+            {
+                id: 54,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Qual é o Marco Filosófico do Neoconstitucionalismo segundo a doutrina de Luís Roberto Barroso sintetizada no material?",
+                alternativas: {
+                    A: "O Jusnaturalismo teocrático absoluto.",
+                    B: "O Positivismo estrito e neutro.",
+                    C: "O Pós-Positivismo, com a reaproximação entre o Direito e a Ética/Moral.",
+                    D: "O Marxismo histórico materialista."
+                },
+                resposta: "C",
+                explicacao: "O marco filosófico neoconstitucional é o Pós-Positivismo, promovendo a convergência entre Direito, Ética e a centralidade dos Direitos Fundamentais."
+            },
+            {
+                id: 55,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Qual o elemento marcante do Marco Teórico do Neoconstitucionalismo?",
+                alternativas: {
+                    A: "A perda do caráter vinculante do texto constitucional.",
+                    B: "Reconhecimento da força normativa da Constituição e expansão da jurisdição constitucional.",
+                    C: "Retorno da supremacia absoluta das leis ordinárias do Parlamento.",
+                    D: "Abolição dos tribunais constitucionais."
+                },
+                resposta: "B",
+                explicacao: "O marco teórico assenta-se na força normativa dos princípios e regras constitucionais e na expansão do controle de constitucionalidade pelo Judiciário."
+            },
+            {
+                id: 56,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Os direitos de Terceira Dimensão, que se destacam na fase contemporânea, possuem como traços essenciais:",
+                alternativas: {
+                    A: "Serem direitos individuais e prestacionais exclusivos do trabalhador.",
+                    B: "Estar ligados à solidariedade/fraternidade e possuírem titularidade difusa ou coletiva (ex: meio ambiente).",
+                    C: "Serem direitos voltados à contenção do Estado nas prisões.",
+                    D: "Serem direitos outorgados por governos absolutistas."
+                },
+                resposta: "B",
+                explicacao: "A 3ª dimensão enfatiza a solidariedade e fraternidade com direitos de titularidade coletiva/transindividual, como o meio ambiente e o consumidor."
+            },
+            {
+                id: 57,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "O direito a um meio ambiente ecologicamente equilibrado é exemplo clássico de direito de:",
+                alternativas: {
+                    A: "1ª Dimensão.",
+                    B: "2ª Dimensão.",
+                    C: "3ª Dimensão.",
+                    D: "4ª Dimensão."
+                },
+                resposta: "C",
+                explicacao: "O meio ambiente ecologicamente equilibrado é o protótipo do direito difuso de 3ª dimensão (solidariedade)."
+            },
+            {
+                id: 58,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Com o Neoconstitucionalismo, a Constituição deixa de ser vista como simples carta política de intenções e passa a ter:",
+                alternativas: {
+                    A: "Natureza meramente probatória.",
+                    B: "Força normativa imperativa e aplicação direta por todos os magistrados.",
+                    C: "Dependência absoluta de regulamentação infraconstitucional para qualquer efeito.",
+                    D: "Validade subordinada aos regimentos internos do Senado."
+                },
+                resposta: "B",
+                explicacao: "A força normativa (Konrad Hesse) garante que a Constituição seja norma jurídica vinculante e dotada de eficácia."
+            },
+            {
+                id: 59,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "A palavra-chave que consolida o Neoconstitucionalismo no quadro pedagógico é:",
+                alternativas: {
+                    A: "Força normativa + supremacia material/axiológica + direitos fundamentais.",
+                    B: "Atuação estatal restrita + igualdade formal.",
+                    C: "Fatores reais de poder + folha de papel.",
+                    D: "Decisão política do soberano + ausência de princípios."
+                },
+                resposta: "A",
+                explicacao: "A síntese dada no material é: Neoconstitucionalismo = força normativa + supremacia material/axiológica + direitos fundamentais."
+            },
+            {
+                id: 60,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Como o Neoconstitucionalismo enxerga a relação entre normas principiológicas e regras constitucionais?",
+                alternativas: {
+                    A: "Os princípios são meros conselhos sem eficácia jurídica.",
+                    B: "Os princípios possuem verdadeiro status de norma jurídica, servindo de vetor de interpretação e aplicação direta.",
+                    C: "As regras ordinárias derrogam os princípios constitucionais.",
+                    D: "Princípios só podem ser aplicados se houver expressa autorização do Chefe do Executivo."
+                },
+                resposta: "B",
+                explicacao: "No Neoconstitucionalismo ocorre a 'normatividade dos princípios', superando a antiga ideia de que princípios seriam apenas diretrizes políticas secundárias."
+            },
+            {
+                id: 61,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "O Marco Histórico do Neoconstitucionalismo envolveu a superação de qual regime político/jurídico?",
+                alternativas: {
+                    A: "Do Estado de Direito baseado na aplicação cega da lei positiva desprovida de valores éticos (que justificou atrocidades no nazifascismo).",
+                    B: "Do Estado Social moderno.",
+                    C: "Da democracia ateniense direta.",
+                    D: "Do sistema de precedentes vinculantes norte-americano."
+                },
+                resposta: "A",
+                explicacao: "O neoconstitucionalismo surge do repúdio ao positivismo cego que permitiu a barbárie nazista ao divorciar o Direito da Moral/Ética."
+            },
+            {
+                id: 62,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Qual a consequência da Supremacia Axiológica da Constituição no Neoconstitucionalismo?",
+                alternativas: {
+                    A: "A Constituição fica submetida aos valores éticos do Código Civil.",
+                    B: "Os valores e princípios constitucionais irradiam por todo o ordenamento jurídico, condicionando a interpretação do direito privado e público.",
+                    C: "O Supremo Tribunal Federal perde o poder de julgar atos normativos.",
+                    D: "As leis municipais passam a ser soberanas."
+                },
+                resposta: "B",
+                explicacao: "Trata-se da irradiação dos direitos fundamentais (filtragem constitucional), em que todo o ordenamento deve ser lido à luz dos valores constitucionais."
+            },
+            {
+                id: 63,
+                nivel: "Fácil",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Assinale qual dos três marcos do Neoconstitucionalismo está incorretamente associado:",
+                alternativas: {
+                    A: "Marco Histórico: Estado Constitucional de Direito e pós-Segunda Guerra.",
+                    B: "Marco Filosófico: Pós-positivismo e reaproximação entre Direito e Ética.",
+                    C: "Marco Teórico: Força normativa da Constituição e expansão da jurisdição constitucional.",
+                    D: "Marco Político: Absolutismo Monárquico e direito divino dos reis."
+                },
+                resposta: "D",
+                explicacao: "O absolutismo monárquico é o oposto do neoconstitucionalismo. Os três marcos corretos são Histórico, Filosófico e Teórico."
+            },
+            {
+                id: 64,
+                nivel: "Médio",
+                assunto: "Neoconstitucionalismo",
+                pergunta: "Se um caso concreto exigir a ponderação entre dois princípios constitucionais colidentes (ex: privacidade x liberdade de imprensa), o juiz neoconstitucionalista aplicará:",
+                alternativas: {
+                    A: "A anulação de ambos os princípios.",
+                    B: "A técnica da ponderação à luz da proporcionalidade, sem declarar a invalidade de nenhum dos princípios no sistema.",
+                    C: "A revogação definitiva do princípio da privacidade.",
+                    D: "O critério da lei mais antiga."
+                },
+                resposta: "B",
+                explicacao: "A colisão de princípios no neoconstitucionalismo resolve-se via ponderação e proporcionalidade no caso concreto, preservando a validade das normas no sistema."
+            },
+
+            // ==========================================
+            // TOPIC 7: Conceito e Concepções da Constituição (12 questões)
+            // ==========================================
+            {
+                id: 65,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "Segundo Ferdinand Lassalle, a Constituição real e efetiva de um país corresponde:",
+                alternativas: {
+                    A: "À decisão política fundamental do povo.",
+                    B: "Aos fatores reais de poder que regem essa sociedade.",
+                    C: "À norma jurídica pura situada no ápice do sistema.",
+                    D: "Ao produto cultural dinâmico de uma civilização."
+                },
+                resposta: "B",
+                explicacao: "Ferdinand Lassalle formulou a concepção sociológica: a Constituição real é a soma dos fatores reais de poder."
+            },
+            {
+                id: 66,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "Para Lassalle, se o texto constitucional escrito não corresponder aos fatores reais de poder da sociedade, ele será apenas:",
+                alternativas: {
+                    A: "Uma decisão política irrevogável.",
+                    B: "Uma norma fundamental rígida.",
+                    C: "Uma 'mera folha de papel' (uma Constituição jurídica sem eficácia).",
+                    D: "Um fato cultural atemporal."
+                },
+                resposta: "C",
+                explicacao: "Na visão sociológica de Lassalle, a Constituição escrita que não reflete as forças sociais/políticas reais é reduzida a uma 'folha de papel'."
+            },
+            {
+                id: 67,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "Quem é o autor da Concepção Política da Constituição, que a conceitua como a 'decisão política fundamental'?",
+                alternativas: {
+                    A: "Hans Kelsen.",
+                    B: "Ferdinand Lassalle.",
+                    C: "Carl Schmitt.",
+                    D: "Peter Häberle."
+                },
+                resposta: "C",
+                explicacao: "Carl Schmitt é o teórico central da Concepção Política da Constituição."
+            },
+            {
+                id: 68,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "Carl Schmitt estabelece uma célebre distinção entre 'Constituição' e 'Leis Constitucionais'. O que é 'Constituição' para Schmitt?",
+                alternativas: {
+                    A: "Todo e qualquer artigo que esteja formalmente escrito no texto promulgativo.",
+                    B: "Apenas a decisão política fundamental sobre a forma e estrutura de existência da unidade política.",
+                    C: "O conjunto de preceitos sobre direito processual civil.",
+                    D: "A norma hipotética fundamental idealizada no plano lógico."
+                },
+                resposta: "B",
+                explicacao: "Para Schmitt, Constituição traz a decisão política fundamental (estrutura do Estado, direitos); as demais normas no texto são apenas 'leis constitucionais'."
+            },
+            {
+                id: 69,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "Hans Kelsen é o precursor de qual concepção da Constituição?",
+                alternativas: {
+                    A: "Concepção Sociológica.",
+                    B: "Concepção Jurídica.",
+                    C: "Concepção Política.",
+                    D: "Concepção Culturalista."
+                },
+                resposta: "B",
+                explicacao: "Hans Kelsen é o idealizador da Concepção Jurídica da Constituição (norma pura)."
+            },
+            {
+                id: 70,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "No pensamento de Hans Kelsen, a Constituição pode ser analisada em dois sentidos: o sentido Jurídico-Positivo e o Lógico-Jurídico. O que é a Constituição no sentido Lógico-Jurídico?",
+                alternativas: {
+                    A: "O texto formal positivado e aprovado pelo Parlamento.",
+                    B: "A Norma Hipotética Fundamental, que serve como fundamento lógico de validade da Constituição positivada.",
+                    C: "A soma dos fatores econômicos de poder.",
+                    D: "O conjunto de costumes de uma nação."
+                },
+                resposta: "B",
+                explicacao: "No sentido lógico-jurídico kelseniano, a Constituição é a Norma Hipotética Fundamental (pressuposto de validade supremo)."
+            },
+            {
+                id: 71,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "No sentido Jurídico-Positivo de Hans Kelsen, a Constituição é entendida como:",
+                alternativas: {
+                    A: "A norma jurídica suprema positivada, que serve de fundamento de validade para as demais normas do Estado.",
+                    B: "Uma simples recomendação sem força de lei.",
+                    C: "O pacto de convivência religiosa entre profetas.",
+                    D: "A decisão soberana do Monarca."
+                },
+                resposta: "A",
+                explicacao: "No sentido jurídico-positivo, a Constituição é o texto supremo escrito positivado que encabeça a ordem jurídica."
+            },
+            {
+                id: 72,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "A Concepção Culturalista da Constituição entende o texto constitucional como:",
+                alternativas: {
+                    A: "Mera folha de papel sem relação com o povo.",
+                    B: "Um fato cultural, produto e ao mesmo tempo condicionante da cultura de uma sociedade.",
+                    C: "Exclusivamente uma norma matemática sem valores humanos.",
+                    D: "Uma imposição autoritária de organismos financeiros."
+                },
+                resposta: "B",
+                explicacao: "A concepção culturalista (Meirelles Teixeira) vê a Constituição como um objeto cultural sintético da realidade social e normativa."
+            },
+            {
+                id: 73,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "Memorize e associe o autor ao seu respectivo 'macete / palavra-chave' fornecido no material:",
+                alternativas: {
+                    A: "Lassalle = NORMA | Schmitt = DECISÃO | Kelsen = REALIDADE.",
+                    B: "Lassalle = REALIDADE | Schmitt = DECISÃO | Kelsen = NORMA.",
+                    C: "Lassalle = DECISÃO | Schmitt = NORMA | Kelsen = CULTURA.",
+                    D: "Lassalle = CULTURA | Schmitt = REALIDADE | Kelsen = DECISÃO."
+                },
+                resposta: "B",
+                explicacao: "Associação do quadro de memorização: Lassalle = REALIDADE | Schmitt = DECISÃO | Kelsen = NORMA."
+            },
+            {
+                id: 74,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "Se uma questão de concurso citar: 'A Constituição situa-se no mundo do dever-ser, desvinculada de valorações sociológicas ou políticas', a questão refere-se à concepção de:",
+                alternativas: {
+                    A: "Ferdinand Lassalle.",
+                    B: "Carl Schmitt.",
+                    C: "Hans Kelsen.",
+                    D: "José Afonso da Silva em estudo histórico."
+                },
+                resposta: "C",
+                explicacao: "Hans Kelsen buscava a 'Teoria Pura do Direito', isolando a norma jurídica dos fatos sociais e da política."
+            },
+            {
+                id: 75,
+                nivel: "Fácil",
+                assunto: "Concepções da Constituição",
+                pergunta: "Para José Afonso da Silva, a Constituição é a Lei Fundamental do Estado porque:",
+                alternativas: {
+                    A: "Foi escrita em latim nos moldes do império romano.",
+                    B: "Organiza seus elementos constitutivos, forma de Estado, governo, órgãos estatais e garante direitos fundamentais.",
+                    C: "Pode ser revogada a qualquer tempo por portaria do Ministério da Justiça.",
+                    D: "Trata apenas do orçamento público anual."
+                },
+                resposta: "B",
+                explicacao: "Conceito clássico de José Afonso da Silva reproduzido no tópico 5 do roteiro."
+            },
+            {
+                id: 76,
+                nivel: "Médio",
+                assunto: "Concepções da Constituição",
+                pergunta: "Imagine que um governante cria uma lei sobre regras de trânsito e consegue inseri-la no texto da Constituição. Para Carl Schmitt, essa norma é classificada como:",
+                alternativas: {
+                    A: "Constituição propriamente dita, pois atinge o cerne da estrutura estatal.",
+                    B: "Uma Lei Constitucional, pois está formalmente no texto, mas não veicula uma decisão política fundamental.",
+                    C: "Uma folha de papel sociológica.",
+                    D: "Norma hipotética fundamental."
+                },
+                resposta: "B",
+                explicacao: "Schmitt chama de 'Lei Constitucional' as disposições meramente formais que constam do documento sem versar sobre a decisão política fundamental."
+            },
+
+            // ==========================================
+            // TOPIC 8: Classificação das Constituições (12 questões)
+            // ==========================================
+            {
+                id: 77,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Origem, uma Constituição elaborada com efetiva participação popular (Assembleia Constituinte eleita) é classificada como:",
+                alternativas: {
+                    A: "Outorgada.",
+                    B: "Promulgada (ou democrática).",
+                    C: "Cesarista.",
+                    D: "Pactuada."
+                },
+                resposta: "B",
+                explicacao: "Promulgada ou democrática surge da participação popular através de seus representantes legitimamente eleitos."
+            },
+            {
+                id: 78,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Uma Constituição impostas unilateralmente pelos detentores do poder, sem consulta popular, denomina-se:",
+                alternativas: {
+                    A: "Promulgada.",
+                    B: "Outorgada.",
+                    C: "Dogmática.",
+                    D: "Eclética."
+                },
+                resposta: "B",
+                explicacao: "Outorgada é a Constituição ditada/imposta autoritariamente sem participação do povo (ex: Brasil 1824 e 1937)."
+            },
+            {
+                id: 79,
+                nivel: "Médio",
+                assunto: "Classificação das Constituições",
+                pergunta: "Diferencie uma Constituição Cesarista (ou Bonapartista) de uma Constituição Pactuada (ou Dualista):",
+                alternativas: {
+                    A: "A Cesarista é criada por rei e povo; a Pactuada é imposta por ditador sem plebiscito.",
+                    B: "A Cesarista é elaborada unilateralmente mas submetida à ratificação popular por plebiscito/referendo; a Pactuada resulta de pacto entre forças políticas rivais (ex: Rei e Parlamento).",
+                    C: "Ambas são sinônimos exatos de Constituição democrática.",
+                    D: "A Cesarista é fruto do costume e a Pactuada é formal."
+                },
+                resposta: "B",
+                explicacao: "Cesarista = elaboração autocrática submetida a referendo popular legitimador. Pactuada = compromisso escrito entre blocos rivais (Rei x Nobreza/Parlamento)."
+            },
+            {
+                id: 80,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Estabilidade, a Constituição que exige um processo de alteração mais solene e complexo do que o das leis ordinárias é chamada de:",
+                alternativas: {
+                    A: "Flexível.",
+                    B: "Rígida.",
+                    C: "Semirrígida.",
+                    D: "Imutável."
+                },
+                resposta: "B",
+                explicacao: "Rígida é a Constituição cujo processo de reforma requer rito qualificado e mais dificultoso."
+            },
+            {
+                id: 81,
+                nivel: "Médio",
+                assunto: "Classificação das Constituições",
+                pergunta: "No critério Ontológico de Karl Loewenstein, qual é a diferença entre Constituição Normativa, Nominalista e Semântica?",
+                alternativas: {
+                    A: "Normativa é autoritária; Nominalista é flexível; Semântica é perfeita.",
+                    B: "Normativa reflete a realidade (texto = realidade); Nominalista é um modelo a alcançar (prospectiva); Semântica serve apenas para mascarar/legitimar o poder autoritário.",
+                    C: "Normativa é não escrita; Nominalista é extensa; Semântica é concisa.",
+                    D: "São classificações relativas à quantidade de páginas do texto."
+                },
+                resposta: "B",
+                explicacao: "Classificação ontológica de Loewenstein: Normativa (cumprida e vivenciada); Nominalista (texto almeja o futuro, mas ainda não se cumpre plenamente); Semântica (instrumento de dominação política)."
+            },
+            {
+                id: 82,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Extensão, uma Constituição que aborda minuciosamente diversos temas (como previdência, tributos, ordem social) é classificada como:",
+                alternativas: {
+                    A: "Sintética.",
+                    B: "Analítica (ou prolixa).",
+                    C: "Codificada unitextual básica.",
+                    D: "Preceitual."
+                },
+                resposta: "B",
+                explicacao: "Analítica/prolixa é extensa, contendo minudências além dos temas estritamente organizacionais."
+            },
+            {
+                id: 83,
+                nivel: "Médio",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto ao Conteúdo, qual a diferença entre Constituição Formal e Constituição Material?",
+                alternativas: {
+                    A: "Formal importa a inserção formal das normas no texto supremo; Material importa apenas as matérias essencialmente constitucionais (organização do Estado e direitos).",
+                    B: "Formal é a norma escrita por juízes; Material é a norma dita pelo Presidente.",
+                    C: "Formal é histórica; Material é dogmática.",
+                    D: "Não há diferença doutrinária entre conteúdo formal e material."
+                },
+                resposta: "A",
+                explicacao: "Formal: tudo que está no texto é constitucional por sua forma. Material: só é constitucional o conteúdo essencialmente estruturante."
+            },
+            {
+                id: 84,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Finalidade ou Função, uma Constituição Dirigente (ou programática) é aquela que:",
+                alternativas: {
+                    A: "Limita-se a registrar a realidade presente sem prever o futuro.",
+                    B: "Define metas, diretrizes, programas e objetivos para a atuação futura do Estado.",
+                    C: "Atua apenas na organização militar.",
+                    D: "Não permite a existência de partidos de oposição."
+                },
+                resposta: "B",
+                explicacao: "Constituição Dirigente fixa tarefas e planos de ação futura ao legislador e governantes (canotilho)."
+            },
+            {
+                id: 85,
+                nivel: "Médio",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Ideologia, a Constituição que abriga o pluralismo político e concilia visões econômicas/sociais distintas é chamada de:",
+                alternativas: {
+                    A: "Ortodoxa.",
+                    B: "Eclética.",
+                    C: "Semântica.",
+                    D: "Heterônoma."
+                },
+                resposta: "B",
+                explicacao: "Eclética adota o pluralismo ideológico e de correntes políticas diversas. Ortodoxa adota ideologia única."
+            },
+            {
+                id: 86,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto ao Modo de Elaboração, uma Constituição Dogmática é aquela que:",
+                alternativas: {
+                    A: "Forma-se lentamente através dos costumes e tradições ao longo dos séculos (ex: Reino Unido).",
+                    B: "Sistematiza-se e elabora-se por um órgão constituinte em um momento histórico determinado.",
+                    C: "Deriva da vontade incontestável de um dogma religioso.",
+                    D: "Pode ser alterada oralmente."
+                },
+                resposta: "B",
+                explicacao: "Dogmática é produzida em momento certo por um órgão constituinte com base em dogmas/teorias da época."
+            },
+            {
+                id: 87,
+                nivel: "Médio",
+                assunto: "Classificação das Constituições",
+                pergunta: "Quanto à Sistemática, qual a diferença entre Constituição Codificada e Não Codificada?",
+                alternativas: {
+                    A: "Codificada reúne suas normas em um único texto orgânico; Não codificada possui suas normas dispersas em múltiplos documentos.",
+                    B: "Codificada é feita por código secreto; Não codificada é pública.",
+                    C: "Codificada é não escrita; Não codificada é escrita.",
+                    D: "Codificada aceita emendas; Não codificada é imutável."
+                },
+                resposta: "A",
+                explicacao: "Codificada/unitextual reune todo o texto num único livro/documento. Não codificada/pluritextual espalha-se por vários textos."
+            },
+            {
+                id: 88,
+                nivel: "Fácil",
+                assunto: "Classificação das Constituições",
+                pergunta: "Uma Constituição elaborada no próprio Estado que ela irá reger é classificada quanto à decretação como:",
+                alternativas: {
+                    A: "Heterônoma.",
+                    B: "Autônoma (ou Autoconstituição).",
+                    C: "Cesarista.",
+                    D: "Pactuada internacional."
+                },
+                resposta: "B",
+                explicacao: "Autônoma é elaborada dentro e pelo próprio país que regerá."
+            },
+
+            // ==========================================
+            // TOPIC 9: Classificação da CF/88 e Pontos Técnicos (8 questões)
+            // ==========================================
+            {
+                id: 89,
+                nivel: "Fácil",
+                assunto: "Classificação da CF/1988",
+                pergunta: "Com base no quadro oficial do material de estudo, assinale a classificação CORRETA da Constituição Federal de 1988 quanto à Origem e Estabilidade:",
+                alternativas: {
+                    A: "Outorgada e Flexível.",
+                    B: "Promulgada e Rígida.",
+                    C: "Cesarista e Semirrígida.",
+                    D: "Pactuada e Super-rígida."
+                },
+                resposta: "B",
+                explicacao: "CF/88 é Promulgada (democrática) e Rígida (reforma exige rito qualificado por PEC)."
+            },
+            {
+                id: 90,
+                nivel: "Médio",
+                assunto: "Classificação da CF/1988",
+                pergunta: "No tocante ao Critério Ontológico e à Extensão, como deve ser classificada a CF/88 para os fins da prova AV1 de Constitucional I conforme o material?",
+                alternativas: {
+                    A: "Normativa e Sintética.",
+                    B: "Nominalista e Analítica.",
+                    C: "Semântica e Curta.",
+                    D: "Dogmática e Flexível."
+                },
+                resposta: "B",
+                explicacao: "Conforme indicação expressa do material: Ontológico = Nominalista (voltada para o futuro) e Extensão = Analítica (extensa, prolixa)."
+            },
+            {
+                id: 91,
+                nivel: "Fácil",
+                assunto: "Classificação da CF/1988",
+                pergunta: "Em relação ao seu Conteúdo e Sistemática, a Constituição Federal de 1988 é classificada como:",
+                alternativas: {
+                    A: "Material e Não codificada.",
+                    B: "Formal e Codificada (unitextual).",
+                    C: "Flexível e Histórica.",
+                    D: "Ortodoxa e Preceitual."
+                },
+                resposta: "B",
+                explicacao: "CF/88 é Formal (todas as suas normas têm status constitucional por estarem nela) e Codificada/Unitextual (um único documento)."
+            },
+            {
+                id: 92,
+                nivel: "Médio",
+                assunto: "Classificação da CF/1988",
+                pergunta: "Qual das seguintes opções lista PERFEITAMENTE a combinação de classificações da CF/1988 adotada no roteiro de estudo?",
+                alternativas: {
+                    A: "Promulgada, Escrita, Dogmática, Formal, Rígida, Analítica, Dirigente, Eclética e Principiológica.",
+                    B: "Outorgada, Não escrita, Histórica, Material, Flexível e Sintética.",
+                    C: "Cesarista, Codificada, Semirrígida, Ortodoxa e Preceitual.",
+                    D: "Pactuada, Heterônoma, Imutável e Semântica."
+                },
+                resposta: "A",
+                explicacao: "É a síntese exata da tabela apresentada no Tópico 7 do roteiro de estudo."
+            },
+            {
+                id: 93,
+                nivel: "Fácil",
+                assunto: "Pontos Técnicos e Conferência",
+                pergunta: "No tocante à Emenda Constitucional nº 1/1969 na história constitucional brasileira, a doutrina costuma enquadrá-la sob qual classificação de origem?",
+                alternativas: {
+                    A: "Promulgada.",
+                    B: "Outorgada.",
+                    C: "Pactuada.",
+                    D: "Democrática por sufrágio."
+                },
+                resposta: "B",
+                explicacao: "A EC 01/1969 (editada pela Junta Militar) tem caráter doutrinário de norma outorgada."
+            },
+            {
+                id: 94,
+                nivel: "Médio",
+                assunto: "Pontos Técnicos e Conferência",
+                pergunta: "Uma questão de prova diz: 'A CF/88 deve ser classificada tecnicamente na AV1 como super-rígida devido às cláusulas pétreas.' Como avaliar esse item segundo as recomendações técnicas do roteiro?",
+                alternativas: {
+                    A: "Correto, pois o termo super-rígida é o oficial da banca.",
+                    B: "Incorreto, pois o roteiro estabelece expressamente para a AV1 a classificação como RÍGIDA.",
+                    C: "Correto, pois não admite emendas.",
+                    D: "Incorreto, porque ela é semirrígida."
+                },
+                resposta: "B",
+                explicacao: "Atenção ao Ponto de Atenção nº 9 do texto: 'para a AV1, classifique-a como rígida, e não super-rígida'."
+            },
+
+            // ==========================================
+            // TOPIC 10: Estrutura da CF/1988 (6 questões)
+            // ==========================================
+            {
+                id: 95,
+                nivel: "Fácil",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "Quais são as três partes integrantes da estrutura da Constituição Federal de 1988?",
+                alternativas: {
+                    A: "Introdução, Código Civil e Anexos.",
+                    B: "Preâmbulo, Parte Dogmática e ADCT (Atos das Disposições Constitucionais Transitórias).",
+                    C: "Exposição de Motivos, Decretos e Emendas.",
+                    D: "Preâmbulo, Jurisprudência e Súmulas Vinculantes."
+                },
+                resposta: "B",
+                explicacao: "A estrutura tríplice da CF/88 é: Preâmbulo, Parte Dogmática e ADCT (Macete P-D-A)."
+            },
+            {
+                id: 96,
+                nivel: "Médio",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "Segundo o entendimento consolidado do Supremo Tribunal Federal (STF), o Preâmbulo da Constituição Federal possui força normativa e serve como parâmetro para controle de constitucionalidade?",
+                alternativas: {
+                    A: "Sim, o Preâmbulo tem plena força normativa e pode anular leis.",
+                    B: "Não, o STF consagrou que o Preâmbulo não possui força normativa, não cria direitos e nem serve de parâmetro de constitucionalidade.",
+                    C: "Sim, pois equivale aos artigos do ADCT.",
+                    D: "Não, mas é a única parte que não pode sofrer emenda."
+                },
+                resposta: "B",
+                explicacao: "A posição prevalente do STF é de ausência de força normativa do Preâmbulo (vetor ideológico/hermenêutico sem densidade de norma jurídica vinculante)."
+            },
+            {
+                id: 97,
+                nivel: "Fácil",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "A Parte Dogmática da CF/1988 compreende o corpo principal do texto e estende-se numericamente de qual a qual artigo?",
+                alternativas: {
+                    A: "Do artigo 1º ao artigo 250.",
+                    B: "Do artigo 1º ao artigo 100.",
+                    C: "Do artigo 5º ao artigo 17.",
+                    D: "Do artigo 50 ao artigo 500."
+                },
+                resposta: "A",
+                explicacao: "A Parte Dogmática permanente da CF/88 corresponde aos artigos 1º ao 250."
+            },
+            {
+                id: 98,
+                nivel: "Médio",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "Sobre as normas contidas nos Atos das Disposições Constitucionais Transitórias (ADCT), é correto afirmar:",
+                alternativas: {
+                    A: "Possuem hierarquia inferior às leis ordinárias.",
+                    B: "Possuem a mesma hierarquia constitucional das normas da parte dogmática e podem servir de parâmetro de controle de constitucionalidade.",
+                    C: "Não têm força normativa alguma por serem temporárias.",
+                    D: "São regras escritas pelo Poder Judiciário."
+                },
+                resposta: "B",
+                explicacao: "Normas do ADCT têm a mesma hierarquia jurídica (status de norma constitucional) que a parte dogmática."
+            },
+            {
+                id: 99,
+                nivel: "Fácil",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "O macete 'P-D-A' utilizado na memorização da estrutura constitucional brasileira refere-se a:",
+                alternativas: {
+                    A: "Princípios — Diretrizes — Ações.",
+                    B: "Preâmbulo — Dogmática — ADCT.",
+                    C: "Processo — Decisão — Acórdão.",
+                    D: "Poderes — Direitos — Atribuições."
+                },
+                resposta: "B",
+                explicacao: "Macete do roteiro: P-D-A = Preâmbulo + Dogmática + ADCT."
+            },
+            {
+                id: 100,
+                nivel: "Médio",
+                assunto: "Estrutura da CF/1988",
+                pergunta: "Qual é a finalidade precípua do Ato das Disposições Constitucionais Transitórias (ADCT)?",
+                alternativas: {
+                    A: "Fixar sanções disciplinares para deputados federais.",
+                    B: "Disciplinar a transição entre a ordem constitucional anterior e a nova ordem de 1988, regulando situações temporais.",
+                    C: "Declarar a independência das províncias.",
+                    D: "Criar emendas constitucionais automáticas sem votação."
+                },
+                resposta: "B",
+                explicacao: "O ADCT disciplina a passagem e harmonização entre o ordenamento jurídico antigo e o novo ordenamento instaurado pela CF/88."
+            }
+        ];
+
+        /**
+         * ESTADO GLOBAL DO SIMULADO (APPLICATION STATE)
+         */
+        const STATE_KEY = "simulado_constitucional_state_v1";
+
+        let currentQuestions = [...QUESTOES_BASE]; // Questões ativas (pode ser filtrado/embaralhado)
+        let activeQuestionIndex = 0;
+        let answeredMap = {}; // { qId: { selectedOpt: 'A', isCorrect: true/false } }
+        let isDarkMode = false;
+        let isReviewWrongOnly = false;
+
+        // Custom Modal Promise Handler
+        let modalResolver = null;
+
+        /**
+         * INICIALIZAÇÃO E EVENT LISTENERS DA APLICAÇÃO
+         */
+        window.onload = function () {
+            initTheme();
+            populateTopicDropdown();
+            loadStateFromStorage();
+            setupEventListeners();
+            checkResumeNotice();
+        };
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem("simulado_theme");
+            if (savedTheme === "dark" || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add("dark");
+                isDarkMode = true;
+            } else {
+                document.documentElement.classList.remove("dark");
+                isDarkMode = false;
+            }
+        }
+
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                document.documentElement.classList.add("dark");
+                localStorage.setItem("simulado_theme", "dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("simulado_theme", "light");
+            }
+        }
+
+        function populateTopicDropdown() {
+            const topics = [...new Set(QUESTOES_BASE.map(q => q.assunto))];
+            const group = document.getElementById("topicOptionsGroup");
+            group.innerHTML = "";
+            topics.forEach(t => {
+                const count = QUESTOES_BASE.filter(q => q.assunto === t).length;
+                const opt = document.createElement("option");
+                opt.value = "TOPIC:" + t;
+                opt.textContent = `${t} (${count} q)`;
+                group.appendChild(opt);
+            });
+        }
+
+        function setupEventListeners() {
+            // Theme toggle
+            document.getElementById("themeToggleBtn").addEventListener("click", toggleTheme);
+            document.getElementById("brandHomeBtn").addEventListener("click", () => showScreen("welcomeScreen"));
+
+            // Start & Resume Buttons
+            document.getElementById("startSimuladoBtn").addEventListener("click", startNewSimulado);
+            document.getElementById("resumeSimuladoBtn").addEventListener("click", resumeSavedSimulado);
+            document.getElementById("clearProgressBtn").addEventListener("click", confirmClearProgress);
+            document.getElementById("resetSimuladoHeaderBtn").addEventListener("click", confirmResetSimulado);
+
+            // Quiz Navigation Buttons
+            document.getElementById("confirmAnswerBtn").addEventListener("click", confirmAnswer);
+            document.getElementById("nextQuestionBtn").addEventListener("click", goToNextQuestion);
+            document.getElementById("prevQuestionBtn").addEventListener("click", goToPrevQuestion);
+
+            // Sidebar Controls
+            document.getElementById("shuffleSimuladoBtn").addEventListener("click", shuffleActiveQuestions);
+            document.getElementById("finishSimuladoEarlyBtn").addEventListener("click", confirmFinishEarly);
+
+            // Result Screen Controls
+            document.getElementById("restartFromResultBtn").addEventListener("click", confirmResetSimulado);
+            document.getElementById("toggleReviewModeBtn").addEventListener("click", toggleReviewMode);
+            document.getElementById("filterReviewAll").addEventListener("click", () => {
+                isReviewWrongOnly = false;
+                renderReviewList();
+            });
+            document.getElementById("filterReviewWrong").addEventListener("click", () => {
+                isReviewWrongOnly = true;
+                renderReviewList();
+            });
+
+            // Modal Handlers
+            document.getElementById("modalCancelBtn").addEventListener("click", () => closeModal(false));
+            document.getElementById("modalConfirmBtn").addEventListener("click", () => closeModal(true));
+        }
+
+        function showScreen(screenId) {
+            document.getElementById("welcomeScreen").classList.add("hidden");
+            document.getElementById("quizScreen").classList.add("hidden");
+            document.getElementById("resultScreen").classList.add("hidden");
+
+            document.getElementById(screenId).classList.remove("hidden");
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function checkResumeNotice() {
+            const keysCount = Object.keys(answeredMap).length;
+            const notice = document.getElementById("resumeNotice");
+            if (keysCount > 0) {
+                notice.classList.remove("hidden");
+                document.getElementById("resumeInfoText").textContent =
+                    `Você já respondeu ${keysCount} de ${QUESTOES_BASE.length} questões salvas.`;
+            } else {
+                notice.classList.add("hidden");
+            }
+        }
+
+        function startNewSimulado() {
+            const filterVal = document.getElementById("filterSelect").value;
+            const shouldShuffle = document.getElementById("shuffleOnStartCheck").checked;
+
+            let filtered = [...QUESTOES_BASE];
+
+            if (filterVal === "LEVEL_FACIL") {
+                filtered = QUESTOES_BASE.filter(q => q.nivel === "Fácil");
+            } else if (filterVal === "LEVEL_MEDIO") {
+                filtered = QUESTOES_BASE.filter(q => q.nivel === "Médio");
+            } else if (filterVal.startsWith("TOPIC:")) {
+                const topicName = filterVal.replace("TOPIC:", "");
+                filtered = QUESTOES_BASE.filter(q => q.assunto === topicName);
+            }
+
+            if (shouldShuffle) {
+                filtered = shuffleArray(filtered).map(q => shuffleQuestionAlternatives(q));
+            }
+
+            currentQuestions = filtered;
+            activeQuestionIndex = 0;
+            answeredMap = {};
+            saveStateToStorage();
+
+            showScreen("quizScreen");
+            renderQuestion();
+            renderSidebar();
+        }
+
+        function resumeSavedSimulado() {
+            showScreen("quizScreen");
+            renderQuestion();
+            renderSidebar();
+        }
+
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        /* Shuffles A, B, C, D alternatives while keeping the correct key mapped */
+        function shuffleQuestionAlternatives(q) {
+            const entries = Object.entries(q.alternativas); // [['A', textA], ...]
+            const correctAnswerText = q.alternativas[q.resposta];
+            const shuffledEntries = shuffleArray(entries);
+
+            const newAlts = {};
+            let newCorrectLetter = "A";
+
+            const letters = ["A", "B", "C", "D"];
+            shuffledEntries.forEach((entry, idx) => {
+                const key = letters[idx];
+                newAlts[key] = entry[1];
+                if (entry[1] === correctAnswerText) {
+                    newCorrectLetter = key;
+                }
+            });
+
+            return {
+                ...q,
+                alternativas: newAlts,
+                resposta: newCorrectLetter
+            };
+        }
+
+        function shuffleActiveQuestions() {
+            openModal("Embaralhar Questões",
+                "Deseja embaralhar a ordem das questões e alternativas atuais? Seu progresso de respostas será mantido."
+                ).then(confirmed => {
+                if (confirmed) {
+                    currentQuestions = shuffleArray(currentQuestions).map(q => shuffleQuestionAlternatives(q));
+                    saveStateToStorage();
+                    renderQuestion();
+                    renderSidebar();
+                }
+            });
+        }
+
+        function renderQuestion() {
+            if (currentQuestions.length === 0) return;
+
+            const q = currentQuestions[activeQuestionIndex];
+            const qId = q.id;
+            const answered = answeredMap[qId];
+
+            // Badges & Progress Header
+            document.getElementById("questionCounterBadge").textContent =
+                `Questão ${activeQuestionIndex + 1} de ${currentQuestions.length}`;
+            document.getElementById("questionLevelBadge").textContent = `Nível ${q.nivel}`;
+            document.getElementById("questionLevelBadge").className = q.nivel === "Fácil" ?
+                "px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300" :
+                "px-2.5 py-0.5 text-xs font-semibold rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300";
+
+            document.getElementById("questionTopicBadge").textContent = q.assunto;
+
+            // Visual Progress Percentage
+            const progressPercent = Math.round(((activeQuestionIndex + 1) / currentQuestions.length) * 100);
+            document.getElementById("progressBarText").textContent = `${progressPercent}%`;
+            document.getElementById("progressBarFill").style.width = `${progressPercent}%`;
+
+            // Question Statement
+            document.getElementById("questionStatement").textContent = q.pergunta;
+
+            // Alternatives
+            const container = document.getElementById("alternativesContainer");
+            container.innerHTML = "";
+
+            const selectedKey = answered ? answered.selectedOpt : null;
+
+            ["A", "B", "C", "D"].forEach(letter => {
+                const optionText = q.alternativas[letter];
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = getOptionStyle(letter, selectedKey, answered, q.resposta);
+
+                btn.innerHTML = `
+                    <div class="flex items-start space-x-3 w-full text-left">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg font-bold text-xs shrink-0 ${getOptionLetterBadgeStyle(letter, selectedKey, answered, q.resposta)}">
+                            ${letter}
+                        </span>
+                        <span class="text-sm font-medium pt-0.5 leading-snug">${optionText}</span>
+                    </div>
+                `;
+
+                if (!answered) {
+                    btn.addEventListener("click", () => selectOption(letter));
+                }
+
+                container.appendChild(btn);
+            });
+
+            // Action Buttons
+            const confirmBtn = document.getElementById("confirmAnswerBtn");
+            const nextBtn = document.getElementById("nextQuestionBtn");
+            const prevBtn = document.getElementById("prevQuestionBtn");
+
+            prevBtn.disabled = activeQuestionIndex === 0;
+            prevBtn.style.opacity = activeQuestionIndex === 0 ? "0.4" : "1";
+
+            if (answered) {
+                confirmBtn.classList.add("hidden");
+                nextBtn.classList.remove("hidden");
+                renderExplanation(q, answered);
+            } else {
+                confirmBtn.classList.remove("hidden");
+                nextBtn.classList.add("hidden");
+                confirmBtn.disabled = !tempSelectedOption;
+                document.getElementById("explanationCard").classList.add("hidden");
+            }
+        }
+
+        let tempSelectedOption = null;
+
+        function selectOption(letter) {
+            tempSelectedOption = letter;
+            const buttons = document.getElementById("alternativesContainer").children;
+            ["A", "B", "C", "D"].forEach((key, idx) => {
+                const btn = buttons[idx];
+                if (key === letter) {
+                    btn.className =
+                        "w-full p-4 rounded-xl border-2 border-brand-500 bg-brand-50/50 dark:bg-brand-950/30 text-slate-900 dark:text-white transition-all shadow-sm";
+                } else {
+                    btn.className =
+                        "w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 text-slate-700 dark:text-slate-200 transition-all";
+                }
+            });
+            document.getElementById("confirmAnswerBtn").disabled = false;
+        }
+
+        function getOptionStyle(letter, selectedKey, answered, correctKey) {
+            const base = "w-full p-4 rounded-xl border text-left transition-all ";
+            if (!answered) {
+                if (tempSelectedOption === letter) {
+                    return base +
+                        "border-2 border-brand-500 bg-brand-50/50 dark:bg-brand-950/30 text-slate-900 dark:text-white";
+                }
+                return base +
+                    "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-800 dark:text-slate-200";
+            }
+
+            // Repostas travadas (já respondida)
+            if (letter === correctKey) {
+                return base +
+                    "border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-100 font-semibold";
+            }
+            if (letter === selectedKey && selectedKey !== correctKey) {
+                return base +
+                "border-2 border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-900 dark:text-rose-100";
+            }
+            return base +
+                "border-slate-200 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/40 opacity-60 text-slate-500 dark:text-slate-400";
+        }
+
+        function getOptionLetterBadgeStyle(letter, selectedKey, answered, correctKey) {
+            if (!answered) {
+                if (tempSelectedOption === letter) return "bg-brand-600 text-white";
+                return "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300";
+            }
+            if (letter === correctKey) return "bg-emerald-600 text-white";
+            if (letter === selectedKey && selectedKey !== correctKey) return "bg-rose-600 text-white";
+            return "bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400";
+        }
+
+        function confirmAnswer() {
+            if (!tempSelectedOption) return;
+
+            const q = currentQuestions[activeQuestionIndex];
+            const isCorrect = tempSelectedOption === q.resposta;
+
+            answeredMap[q.id] = {
+                selectedOpt: tempSelectedOption,
+                isCorrect: isCorrect
+            };
+
+            tempSelectedOption = null;
+            saveStateToStorage();
+
+            renderQuestion();
+            renderSidebar();
+        }
+
+        function renderExplanation(q, answered) {
+            const expCard = document.getElementById("explanationCard");
+            const banner = document.getElementById("feedbackBanner");
+            const expText = document.getElementById("explanationText");
+
+            expCard.classList.remove("hidden");
+
+            if (answered.isCorrect) {
+                banner.className =
+                    "p-4 rounded-xl flex items-center space-x-3 font-bold text-base bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800";
+                banner.innerHTML =
+                    `<i class="fa-solid fa-circle-check text-emerald-600 text-xl"></i><span>RESPOSTA CORRETA! (Alternativa ${q.resposta})</span>`;
+            } else {
+                banner.className =
+                    "p-4 rounded-xl flex items-center space-x-3 font-bold text-base bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-200 border border-rose-200 dark:border-rose-800";
+                banner.innerHTML =
+                    `<i class="fa-solid fa-circle-xmark text-rose-600 text-xl"></i><span>RESPOSTA INCORRETA! Você marcou ${answered.selectedOpt}. A alternativa correta é a ${q.resposta}.</span>`;
+            }
+
+            expText.innerHTML = `
+                <p class="font-medium text-slate-800 dark:text-slate-200 mb-1">${q.explicacao}</p>
+                <div class="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-400">
+                    <span class="font-semibold">Tópico do Edital:</span> ${q.assunto} | <span class="font-semibold">Nível:</span> ${q.nivel}
+                </div>
+            `;
+        }
+
+        function goToNextQuestion() {
+            if (activeQuestionIndex < currentQuestions.length - 1) {
+                activeQuestionIndex++;
+                tempSelectedOption = null;
+                renderQuestion();
+                window.scrollTo({
+                    top: 100,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Todas as questões foram navegadas
+                finishSimulado();
+            }
+        }
+
+        function goToPrevQuestion() {
+            if (activeQuestionIndex > 0) {
+                activeQuestionIndex--;
+                tempSelectedOption = null;
+                renderQuestion();
+            }
+        }
+
+        function renderSidebar() {
+            const answeredCount = Object.keys(answeredMap).length;
+            const totalCount = currentQuestions.length;
+
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            Object.values(answeredMap).forEach(ans => {
+                if (ans.isCorrect) correctCount++;
+                else wrongCount++;
+            });
+
+            const accuracy = answeredCount > 0 ? Math.round((correctCount / answeredCount) * 100) : 0;
+
+            document.getElementById("sidebarAnsweredText").textContent = `${answeredCount} / ${totalCount}`;
+            document.getElementById("sidebarAccuracyText").textContent = `${accuracy}%`;
+            document.getElementById("sidebarCorrectText").textContent = correctCount;
+            document.getElementById("sidebarWrongText").textContent = wrongCount;
+
+            // Question Grid Map
+            const grid = document.getElementById("questionGridNav");
+            grid.innerHTML = "";
+
+            currentQuestions.forEach((q, idx) => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                const ans = answeredMap[q.id];
+
+                let classes =
+                    "w-full aspect-square text-xs font-bold rounded-lg flex items-center justify-center transition-all ";
+
+                if (idx === activeQuestionIndex) {
+                    classes += "ring-2 ring-brand-500 ring-offset-1 dark:ring-offset-slate-800 ";
+                }
+
+                if (ans) {
+                    if (ans.isCorrect) {
+                        classes += "bg-emerald-500 text-white hover:bg-emerald-600";
+                    } else {
+                        classes += "bg-rose-500 text-white hover:bg-rose-600";
+                    }
+                } else {
+                    classes +=
+                        "bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600";
+                }
+
+                btn.className = classes;
+                btn.textContent = idx + 1;
+                btn.addEventListener("click", () => {
+                    activeQuestionIndex = idx;
+                    tempSelectedOption = null;
+                    renderQuestion();
+                });
+
+                grid.appendChild(btn);
+            });
+        }
+
+        function confirmFinishEarly() {
+            const total = currentQuestions.length;
+            const answeredCount = Object.keys(answeredMap).length;
+
+            if (answeredCount < total) {
+                openModal("Finalizar Simulado",
+                    `Você respondeu ${answeredCount} de ${total} questões. Deseja encerrar o simulado e visualizar o resultado final agora?`
+                    ).then(confirmed => {
+                    if (confirmed) finishSimulado();
+                });
+            } else {
+                finishSimulado();
+            }
+        }
+
+        function finishSimulado() {
+            showScreen("resultScreen");
+
+            const total = currentQuestions.length;
+
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            let easyAns = 0,
+                easyCorr = 0,
+                easyWrong = 0;
+            let medAns = 0,
+                medCorr = 0,
+                medWrong = 0;
+
+            const topicStats = {}; // { topicName: { answered: 0, correct: 0, wrong: 0, total: 0 } }
+
+            // Initialize topics
+            currentQuestions.forEach(q => {
+                if (!topicStats[q.assunto]) {
+                    topicStats[q.assunto] = {
+                        answered: 0,
+                        correct: 0,
+                        wrong: 0,
+                        total: 0
+                    };
+                }
+                topicStats[q.assunto].total++;
+
+                const ans = answeredMap[q.id];
+                if (ans) {
+                    topicStats[q.assunto].answered++;
+                    if (ans.isCorrect) {
+                        correctCount++;
+                        topicStats[q.assunto].correct++;
+                        if (q.nivel === "Fácil") {
+                            easyAns++;
+                            easyCorr++;
+                        } else {
+                            medAns++;
+                            medCorr++;
+                        }
+                    } else {
+                        wrongCount++;
+                        topicStats[q.assunto].wrong++;
+                        if (q.nivel === "Fácil") {
+                            easyAns++;
+                            easyWrong++;
+                        } else {
+                            medAns++;
+                            medWrong++;
+                        }
+                    }
+                }
+            });
+
+            const answeredTotal = Object.keys(answeredMap).length;
+            const accuracyPercent = answeredTotal > 0 ? Math.round((correctCount / answeredTotal) * 100) : 0;
+
+            document.getElementById("resTotalQuestions").textContent = total;
+            document.getElementById("resCorrectCount").textContent = correctCount;
+            document.getElementById("resWrongCount").textContent = wrongCount;
+            document.getElementById("resAccuracyPercent").textContent = `${accuracyPercent}%`;
+
+            // Easy breakdown
+            document.getElementById("easyAnsweredCount").textContent = easyAns;
+            document.getElementById("easyCorrectCount").textContent = easyCorr;
+            document.getElementById("easyWrongCount").textContent = easyWrong;
+            document.getElementById("easyAccuracyText").textContent = easyAns > 0 ?
+                `${Math.round((easyCorr / easyAns) * 100)}%` : "0%";
+
+            // Medium breakdown
+            document.getElementById("mediumAnsweredCount").textContent = medAns;
+            document.getElementById("mediumCorrectCount").textContent = medCorr;
+            document.getElementById("mediumWrongCount").textContent = medWrong;
+            document.getElementById("mediumAccuracyText").textContent = medAns > 0 ?
+                `${Math.round((medCorr / medAns) * 100)}%` : "0%";
+
+            // Render Topic breakdown
+            renderTopicPerformance(topicStats);
+
+            // Hide review container until clicked
+            document.getElementById("reviewQuestionsContainer").classList.add("hidden");
+        }
+
+        function renderTopicPerformance(topicStats) {
+            const container = document.getElementById("topicPerformanceGrid");
+            container.innerHTML = "";
+
+            Object.entries(topicStats).forEach(([topic, stats]) => {
+                const acc = stats.answered > 0 ? Math.round((stats.correct / stats.answered) * 100) : 0;
+
+                const card = document.createElement("div");
+                card.className =
+                    "p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl border border-slate-100 dark:border-slate-700 space-y-1.5";
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-center text-xs font-semibold">
+                        <span class="text-slate-800 dark:text-slate-200 truncate max-w-[280px]">${topic}</span>
+                        <span class="text-brand-600 dark:text-brand-400">${stats.correct}/${stats.answered} acertos (${acc}%)</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="bg-brand-600 h-full transition-all" style="width: ${acc}%"></div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        function toggleReviewMode() {
+            const container = document.getElementById("reviewQuestionsContainer");
+            if (container.classList.contains("hidden")) {
+                container.classList.remove("hidden");
+                renderReviewList();
+                container.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                container.classList.add("hidden");
+            }
+        }
+
+        function renderReviewList() {
+            const list = document.getElementById("reviewList");
+            list.innerHTML = "";
+
+            currentQuestions.forEach((q, idx) => {
+                const ans = answeredMap[q.id];
+                if (!ans) return; // Só mostra respondidas
+
+                if (isReviewWrongOnly && ans.isCorrect) return;
+
+                const card = document.createElement("div");
+                card.className = ans.isCorrect ?
+                    "p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800/60 shadow-sm space-y-3" :
+                    "p-5 bg-white dark:bg-slate-800 rounded-2xl border-2 border-rose-200 dark:border-rose-800/60 shadow-sm space-y-3";
+
+                const selectedText = q.alternativas[ans.selectedOpt];
+                const correctText = q.alternativas[q.resposta];
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap justify-between gap-2 border-b border-slate-100 dark:border-slate-700/60 pb-2">
+                        <span class="text-xs font-bold text-slate-500">Questão ${idx + 1} de ${currentQuestions.length}</span>
+                        <div class="flex gap-2">
+                            <span class="px-2 py-0.5 text-xs font-semibold rounded-full ${ans.isCorrect ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200' : 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200'}">
+                                ${ans.isCorrect ? 'ACERTOU' : 'ERROU'}
+                            </span>
+                            <span class="px-2 py-0.5 text-xs font-medium rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                                ${q.assunto}
+                            </span>
+                        </div>
+                    </div>
+                    <p class="font-medium text-slate-900 dark:text-slate-100 text-sm leading-relaxed">${q.pergunta}</p>
+                    <div class="text-xs space-y-1 bg-slate-50 dark:bg-slate-900/40 p-3 rounded-xl">
+                        <p class="${ans.isCorrect ? 'text-emerald-700 dark:text-emerald-300 font-semibold' : 'text-rose-700 dark:text-rose-300 font-semibold'}">
+                            Sua Resposta: (${ans.selectedOpt}) ${selectedText}
+                        </p>
+                        ${!ans.isCorrect ? `<p class="text-emerald-700 dark:text-emerald-300 font-semibold">Resposta Correta: (${q.resposta}) ${correctText}</p>` : ''}
+                    </div>
+                    <div class="text-xs text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/20 p-3 rounded-xl border border-slate-100 dark:border-slate-700/60">
+                        <strong class="text-slate-800 dark:text-slate-200">Explicação:</strong> ${q.explicacao}
+                    </div>
+                `;
+
+                list.appendChild(card);
+            });
+
+            if (list.children.length === 0) {
+                list.innerHTML =
+                    `<p class="text-sm text-slate-500 text-center py-6">Nenhuma questão encontrada para este filtro.</p>`;
+            }
+        }
+
+        function saveStateToStorage() {
+            const data = {
+                answeredMap,
+                activeQuestionIndex,
+                currentQuestions
+            };
+            localStorage.setItem(STATE_KEY, JSON.stringify(data));
+            checkResumeNotice();
+        }
+
+        function loadStateFromStorage() {
+            const saved = localStorage.getItem(STATE_KEY);
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    answeredMap = parsed.answeredMap || {};
+                    activeQuestionIndex = parsed.activeQuestionIndex || 0;
+                    if (parsed.currentQuestions && parsed.currentQuestions.length > 0) {
+                        currentQuestions = parsed.currentQuestions;
+                    }
+                } catch (e) {
+                    console.error("Erro ao carregar estado do localStorage", e);
+                }
+            }
+        }
+
+        function confirmResetSimulado() {
+            openModal("Reiniciar Simulado",
+                "Tem certeza que deseja reiniciar o simulado? Todo o progresso de acertos e erros atual será zerado."
+                ).then(confirmed => {
+                if (confirmed) {
+                    answeredMap = {};
+                    activeQuestionIndex = 0;
+                    currentQuestions = [...QUESTOES_BASE];
+                    saveStateToStorage();
+                    showScreen("welcomeScreen");
+                }
+            });
+        }
+
+        function confirmClearProgress() {
+            openModal("Limpar Progresso", "Deseja apagar permanentemente todos os seus dados e respostas salvas?").then(
+                confirmed => {
+                    if (confirmed) {
+                        localStorage.removeItem(STATE_KEY);
+                        answeredMap = {};
+                        activeQuestionIndex = 0;
+                        currentQuestions = [...QUESTOES_BASE];
+                        checkResumeNotice();
+                    }
+                });
+        }
+
+        /* Custom Promise-based modal replacing alert/confirm */
+        function openModal(title, message) {
+            document.getElementById("modalTitle").textContent = title;
+            document.getElementById("modalMessage").textContent = message;
+            document.getElementById("customModal").classList.remove("hidden");
+
+            return new Promise((resolve) => {
+                modalResolver = resolve;
+            });
+        }
+
+        function closeModal(result) {
+            document.getElementById("customModal").classList.add("hidden");
+            if (modalResolver) {
+                modalResolver(result);
+                modalResolver = null;
+            }
+        }
+    </script>
+</body>
+
+</html>
