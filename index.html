@@ -4,15 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulado de Direito Constitucional I - Concursos Públicos</title>
+    <title>Simulado Profª Marisa</title>
+    <meta name="description" content="Simulado de Direito Constitucional I da Profª Marisa.">
+    <meta name="theme-color" content="#123f37">
+    <meta property="og:title" content="Simulado Profª Marisa">
+    <meta property="og:description" content="Simulado de Direito Constitucional I da Profª Marisa.">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Simulado Profª Marisa",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Any",
+            "description": "Simulado de Direito Constitucional I da Profª Marisa."
+        }
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Source+Serif+4:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <script>
@@ -21,7 +36,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['DM Sans', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -39,9 +54,36 @@
         }
     </script>
     <style>
+        :root {
+            --accent: #1b5b4e;
+            --accent-deep: #123f37;
+            --accent-gold: #a88750;
+            --line: #d7e0dc;
+            --ink: #23332e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'DM Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
+            background-color: #f4f7f6;
+            background-image: radial-gradient(ellipse at 12% 0%, rgba(27, 91, 78, 0.09), transparent 38%),
+                linear-gradient(180deg, #f8faf9 0%, #f1f5f3 100%);
+        }
+
+        .dark body {
+            background-color: #101b19;
+            background-image: radial-gradient(ellipse at 12% 0%, rgba(45, 120, 101, 0.12), transparent 38%),
+                linear-gradient(180deg, #111c1a 0%, #0d1514 100%);
+        }
+
+        button:focus-visible,
+        input:focus-visible {
+            outline: 3px solid rgba(168, 135, 80, 0.55);
+            outline-offset: 2px;
         }
 
         .custom-scrollbar::-webkit-scrollbar {
@@ -68,10 +110,840 @@
 
         .option-card {
             transition: all 0.2s ease-in-out;
+            border-radius: 10px !important;
+            min-height: 56px;
         }
 
         .option-card:hover:not(.disabled) {
             transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 20px rgba(27, 91, 78, 0.09);
+        }
+
+        .option-card.border-blue-600 {
+            border-color: var(--accent) !important;
+            background-color: rgba(27, 91, 78, 0.07) !important;
+        }
+
+        .option-card input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+            accent-color: var(--accent);
+        }
+
+        #question-view > div {
+            position: relative;
+            border-radius: 14px;
+            border-color: var(--line);
+            box-shadow: 0 14px 36px rgba(23, 43, 40, 0.07);
+        }
+
+        #question-view > div::before {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1b5b4e, #a88750);
+            content: '';
+        }
+
+        #question-stem {
+            max-width: 72ch;
+            color: var(--ink);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        .dark #question-stem {
+            color: #edf3ef;
+        }
+
+        body > header {
+            background-color: rgba(252, 253, 251, 0.94);
+            border-color: var(--line);
+            box-shadow: 0 4px 18px rgba(23, 43, 40, 0.04);
+        }
+
+        .dark body > header {
+            background-color: rgba(15, 27, 24, 0.94);
+        }
+
+        header .w-10.h-10 {
+            background-image: linear-gradient(145deg, #286b5a, #123f37) !important;
+            box-shadow: 0 7px 18px rgba(18, 63, 55, 0.2);
+        }
+
+        header .brand-name {
+            background-image: linear-gradient(100deg, #17493f, #92703e) !important;
+        }
+
+        #badge-topic {
+            background-color: #e8f1ec;
+            border-color: #cadbd1;
+            color: #245646;
+        }
+
+        #badge-difficulty {
+            background-color: #f5efe2;
+            border-color: #e6d8bb;
+            color: #80643a;
+        }
+
+        #btn-grid i,
+        #btn-theme i {
+            color: var(--accent);
+        }
+
+        #btn-submit {
+            background-image: linear-gradient(120deg, var(--accent-deep), #286b5a);
+            box-shadow: 0 8px 18px rgba(18, 63, 55, 0.2);
+        }
+
+        #btn-next,
+        #result-view button:first-of-type,
+        #grid-drawer > div:last-child button {
+            background-color: var(--accent-deep);
+            background-image: linear-gradient(120deg, var(--accent-deep), #286b5a);
+        }
+
+        #progress-bar-fill {
+            background-image: linear-gradient(90deg, #1b5b4e, #a88750) !important;
+        }
+
+            #performance-bar > .max-w-7xl > div:first-child > div:nth-child(4) {
+            background-color: #edf4f0 !important;
+            border-color: #d7e5db !important;
+        }
+
+        header + div > .max-w-7xl > div:first-child > div:nth-child(4) > div:first-child {
+            background-color: #dcebe2 !important;
+            color: var(--accent) !important;
+        }
+
+        header + div > .max-w-7xl > div:first-child > div:nth-child(4) > div:last-child > div {
+            color: #245646 !important;
+        }
+
+            .dark #performance-bar > .max-w-7xl > div:first-child > div:nth-child(4) {
+            background-color: #183129 !important;
+            border-color: #285142 !important;
+        }
+
+        .dark header + div > .max-w-7xl > div:first-child > div:nth-child(4) > div:first-child {
+            background-color: #23483a !important;
+            color: #b6d9c5 !important;
+        }
+
+        .dark header + div > .max-w-7xl > div:first-child > div:nth-child(4) > div:last-child > div {
+            color: #c5e2d1 !important;
+        }
+
+        #result-view > div > div:first-child {
+            background-image: linear-gradient(90deg, #1b5b4e, #a88750) !important;
+        }
+
+        #result-view .grid-cols-2 > div:last-child {
+            background-color: #edf4f0;
+            border-color: #d7e5db;
+        }
+
+        #result-view .grid-cols-2 > div:last-child span,
+        #result-view .grid-cols-2 > div:last-child div {
+            color: #245646;
+        }
+
+        .dark #result-view .grid-cols-2 > div:last-child {
+            background-color: #183129;
+            border-color: #285142;
+        }
+
+        .dark #result-view .grid-cols-2 > div:last-child span,
+        .dark #result-view .grid-cols-2 > div:last-child div {
+            color: #c5e2d1;
+        }
+
+        #result-view h2 {
+            font-family: 'Source Serif 4', Georgia, serif;
+            color: var(--accent-deep);
+        }
+
+        .dark #result-view h2 {
+            color: #d7e8df;
+        }
+
+        #btn-submit {
+            background-image: linear-gradient(120deg, var(--accent-deep), var(--accent));
+            box-shadow: 0 8px 18px rgba(15, 118, 110, 0.18);
+        }
+
+        #btn-submit:hover:not(:disabled) {
+            filter: brightness(0.94);
+        }
+
+        .landing-hero {
+            position: relative;
+            display: flex;
+            min-height: 560px;
+            align-items: center;
+            overflow: hidden;
+            background: #123f37;
+            color: #fff;
+        }
+
+        .landing-hero-image,
+        .landing-hero-shade {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .landing-hero-image {
+            object-fit: cover;
+            object-position: center 48%;
+        }
+
+        .landing-hero-shade {
+            background: rgba(12, 29, 25, 0.66);
+        }
+
+        #landing-view > section:not(#inicio),
+        #landing-footer,
+        #landing-nav {
+            display: none !important;
+        }
+
+        .landing-hero-content,
+        .landing-inner {
+            position: relative;
+            z-index: 1;
+            width: min(100% - 48px, 1200px);
+            margin: 0 auto;
+        }
+
+        .landing-hero-content {
+            padding: 80px 0;
+        }
+
+        .landing-eyebrow {
+            color: #d4bd8d;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .landing-hero h1 {
+            max-width: 760px;
+            margin: 18px 0;
+            color: #fff;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.02;
+        }
+
+        .landing-hero-copy {
+            max-width: 620px;
+            color: rgba(255, 255, 255, 0.86);
+            font-size: 1.2rem;
+            line-height: 1.65;
+        }
+
+        .landing-actions {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .landing-primary,
+        .landing-secondary {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 8px;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: transform 220ms ease, background-color 220ms ease, color 220ms ease;
+        }
+
+        .landing-primary {
+            background: #d4bd8d;
+            color: #183d34;
+        }
+
+        .landing-primary:hover {
+            transform: translateY(-2px);
+            background: #e2cea4;
+        }
+
+        .landing-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            color: #fff;
+        }
+
+        .landing-secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .landing-hero-note {
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.82rem;
+        }
+
+        .landing-proof {
+            border-bottom: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .landing-proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            padding: 28px 0;
+        }
+
+        .landing-proof-item {
+            padding: 4px 28px;
+            border-left: 1px solid var(--line);
+        }
+
+        .landing-proof-item:first-child {
+            padding-left: 0;
+            border-left: 0;
+        }
+
+        .landing-proof-value {
+            display: block;
+            color: var(--accent-deep);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .landing-proof-label {
+            color: #64736d;
+            font-size: 0.84rem;
+        }
+
+        .landing-section {
+            padding: 88px 0;
+        }
+
+        .landing-section-muted {
+            background: #edf2ef;
+        }
+
+        .landing-section-heading {
+            max-width: 720px;
+            margin-bottom: 36px;
+        }
+
+        .landing-section-heading h2,
+        .landing-final-cta h2 {
+            margin: 10px 0 12px;
+            color: #1c332c;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 2.7rem;
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .landing-section-heading p {
+            color: #5c6b65;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .landing-feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .landing-feature {
+            min-height: 210px;
+            padding: 24px;
+            border: 1px solid #dbe4df;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+        .landing-feature-icon {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #e5eee8;
+            color: var(--accent);
+        }
+
+        .landing-feature h3 {
+            margin: 20px 0 8px;
+            color: #243a32;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .landing-feature p,
+        .landing-step p {
+            color: #617069;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .landing-step-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .landing-step-number {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #b9cbbf;
+            border-radius: 50%;
+            color: var(--accent-deep);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.1rem;
+        }
+
+        .landing-step h3 {
+            margin: 18px 0 8px;
+            color: #243a32;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .landing-topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            border-top: 1px solid #d5dfda;
+        }
+
+        .landing-topic {
+            display: flex;
+            min-height: 72px;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid #d5dfda;
+            color: #33483f;
+            font-weight: 600;
+        }
+
+        .landing-topic i {
+            color: var(--accent-gold);
+        }
+
+        .landing-faq {
+            max-width: 850px;
+            border-top: 1px solid var(--line);
+        }
+
+        .landing-faq details {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .landing-faq summary {
+            display: flex;
+            min-height: 64px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            color: #263b33;
+            cursor: pointer;
+            font-weight: 700;
+            list-style: none;
+        }
+
+        .landing-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .landing-faq summary::after {
+            color: var(--accent-gold);
+            content: '+';
+            font-size: 1.25rem;
+        }
+
+        .landing-faq details[open] summary::after {
+            content: '\2212';
+        }
+
+        .landing-faq details p {
+            max-width: 720px;
+            padding: 0 32px 20px 0;
+            color: #617069;
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+
+        .landing-final-cta {
+            padding: 64px 0;
+            background: #123f37;
+            color: #fff;
+        }
+
+        .landing-final-cta h2 {
+            color: #fff;
+        }
+
+        .landing-final-cta p {
+            max-width: 620px;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.7;
+        }
+
+        .landing-footer {
+            background: #102e28;
+            color: #dce8e2;
+        }
+
+        .landing-footer-inner {
+            display: flex;
+            min-height: 96px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .landing-footer a {
+            color: #d4bd8d;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .dark .landing-proof {
+            border-color: #2a4038;
+            background: #14231f;
+        }
+
+        .dark .landing-proof-value {
+            color: #e0ca9b;
+        }
+
+        .dark .landing-proof-label,
+        .dark .landing-section-heading p,
+        .dark .landing-feature p,
+        .dark .landing-step p,
+        .dark .landing-faq details p {
+            color: #b8c9bf;
+        }
+
+        .dark .landing-section {
+            background: #101b19;
+        }
+
+        .dark .landing-section-muted {
+            background: #15231f;
+        }
+
+        .dark .landing-section-heading h2,
+        .dark .landing-feature h3,
+        .dark .landing-step h3,
+        .dark .landing-topic,
+        .dark .landing-faq summary {
+            color: #e2ece6;
+        }
+
+        .dark .landing-feature {
+            border-color: #31463d;
+            background: #182823;
+        }
+
+        .dark .landing-feature-icon {
+            background: #254036;
+            color: #c7dfd0;
+        }
+
+        .dark .landing-step-number {
+            border-color: #527263;
+            color: #d4bd8d;
+        }
+
+        .dark .landing-topic-grid,
+        .dark .landing-topic {
+            border-color: #31463d;
+        }
+
+        .dark .landing-faq,
+        .dark .landing-faq details {
+            border-color: #31463d;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 360ms ease, transform 360ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header + div > .max-w-7xl {
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+            }
+
+            header + div > .max-w-7xl > div:first-child {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.5rem;
+            }
+
+            header + div > .max-w-7xl > div:first-child > div:first-child {
+                grid-column: 1 / -1;
+            }
+
+            header + div > .max-w-7xl > div:first-child > div:not(:first-child) {
+                justify-content: center;
+                padding: 0.5rem 0.375rem;
+            }
+
+            header + div > .max-w-7xl > div:first-child > div:not(:first-child) > div:first-child {
+                display: none;
+            }
+
+            header + div > .max-w-7xl > div:first-child > div:not(:first-child) > div:last-child {
+                text-align: center;
+            }
+
+            header + div > .max-w-7xl > div:first-child > div:not(:first-child) > div:last-child > div:first-child {
+                font-size: 0.55rem;
+                white-space: nowrap;
+            }
+
+            header + div > .max-w-7xl > .w-full {
+                margin-top: 0.5rem;
+            }
+
+            header .max-w-7xl > div {
+                min-height: 60px;
+                height: auto;
+                gap: 8px;
+            }
+
+            header p {
+                display: none;
+            }
+
+            header .max-w-7xl > div > div:first-child .brand-name {
+                font-size: 0.86rem;
+            }
+
+            #landing-cta-header {
+                min-height: 38px;
+                padding-right: 0.65rem;
+                padding-left: 0.65rem;
+            }
+
+            #landing-cta-header i {
+                display: none;
+            }
+
+            #btn-grid,
+            #btn-theme,
+            header button[onclick="app.confirmReset()"] {
+                min-width: 38px;
+                min-height: 38px;
+                justify-content: center;
+            }
+
+            main {
+                padding-top: 1rem;
+                padding-bottom: 1.5rem;
+            }
+
+            #question-view > div {
+                border-radius: 12px;
+            }
+
+            #question-view > div > div:nth-child(2) {
+                padding: 1.125rem;
+            }
+
+            #question-stem {
+                font-size: 1.1rem;
+                line-height: 1.65;
+            }
+
+            .option-card {
+                min-height: 60px;
+                padding: 0.875rem 1rem !important;
+                font-size: 0.9rem;
+            }
+
+            #question-view > div > div:last-child {
+                flex-wrap: nowrap;
+                gap: 0.5rem;
+                padding: 0.75rem;
+            }
+
+            #question-view > div > div:last-child > button,
+            #question-view > div > div:last-child > div > button {
+                flex: 1 1 0;
+                justify-content: center;
+                white-space: nowrap;
+                padding-left: 0.65rem;
+                padding-right: 0.65rem;
+                font-size: 0.75rem;
+            }
+
+            #feedback-panel {
+                padding: 1.125rem;
+            }
+
+            #result-view > div {
+                padding: 1.25rem;
+                border-radius: 14px;
+            }
+
+            #result-view .grid-cols-2 {
+                gap: 0.625rem;
+            }
+
+            #result-view .grid-cols-2 > div {
+                padding: 0.75rem;
+            }
+
+            .landing-hero {
+                min-height: 500px;
+                align-items: flex-end;
+            }
+
+            .landing-hero-image {
+                object-position: 58% center;
+            }
+
+            .landing-hero-content,
+            .landing-inner {
+                width: calc(100% - 32px);
+            }
+
+            .landing-hero-content {
+                padding: 54px 0 42px;
+            }
+
+            .landing-hero h1 {
+                margin: 14px 0;
+                font-size: 2.4rem;
+                line-height: 1.08;
+                overflow-wrap: anywhere;
+            }
+
+            .landing-hero-copy {
+                font-size: 1rem;
+            }
+
+            .landing-actions {
+                gap: 10px;
+                margin-top: 22px;
+            }
+
+            .landing-primary,
+            .landing-secondary {
+                min-height: 46px;
+                padding: 0 14px;
+                font-size: 0.82rem;
+            }
+
+            .landing-proof-grid {
+                padding: 18px 0;
+            }
+
+            .landing-proof-item {
+                min-width: 0;
+                padding: 2px 8px;
+            }
+
+            .landing-proof-value {
+                font-size: 1.1rem;
+                overflow-wrap: anywhere;
+            }
+
+            .landing-proof-label {
+                font-size: 0.68rem;
+                line-height: 1.4;
+            }
+
+            .landing-section {
+                padding: 56px 0;
+            }
+
+            .landing-section-heading {
+                margin-bottom: 24px;
+            }
+
+            .landing-section-heading h2,
+            .landing-final-cta h2 {
+                font-size: 2rem;
+            }
+
+            .landing-feature-grid,
+            .landing-step-grid,
+            .landing-topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-feature {
+                min-height: auto;
+                padding: 20px;
+            }
+
+            .landing-feature h3 {
+                margin-top: 14px;
+            }
+
+            .landing-final-cta {
+                padding: 48px 0;
+            }
+
+            .landing-footer-inner {
+                min-height: auto;
+                align-items: flex-start;
+                flex-direction: column;
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
+
+            #grid-drawer > div:last-child {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -84,28 +956,46 @@
         class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
             <!-- Brand Logo & Title -->
-            <div class="flex items-center gap-3 cursor-pointer" onclick="app.showDashboard()">
+            <a id="brand-home" href="#inicio" onclick="app.showLanding(); return false;"
+                class="flex items-center gap-3 cursor-pointer no-underline">
                 <div
                     class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-700 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
                     <i class="fa-solid fa-scale-balanced text-lg"></i>
                 </div>
                 <div>
-                    <h1
-                        class="text-base sm:text-lg font-bold leading-tight bg-gradient-to-r from-blue-800 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
-                        SimulaConcurso
-                    </h1>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Direito Constitucional I • FGV
-                        Style</p>
+                    <span
+                        class="brand-name text-base sm:text-lg font-bold leading-tight bg-gradient-to-r from-blue-800 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
+                        Simulado Profª Marisa
+                    </span>
                 </div>
-            </div>
+            </a>
 
             <!-- Action Buttons -->
             <div class="flex items-center gap-2 sm:gap-3">
-                <button id="btn-grid" onclick="app.toggleGridDrawer()"
-                    class="p-2 sm:px-3 sm:py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all">
-                    <i class="fa-solid fa-th-large text-blue-600 dark:text-blue-400"></i>
-                    <span class="hidden md:inline">Navegador</span>
-                </button>
+                <nav id="landing-nav" class="flex items-center gap-2 sm:gap-5" aria-label="Navegação principal">
+                    <a href="#como-funciona" class="hidden md:inline-flex text-sm font-semibold text-slate-600 hover:text-emerald-900">Como funciona</a>
+                    <a href="#conteudo" class="hidden md:inline-flex text-sm font-semibold text-slate-600 hover:text-emerald-900">Conteúdo</a>
+                    <a href="#duvidas" class="hidden md:inline-flex text-sm font-semibold text-slate-600 hover:text-emerald-900">Dúvidas</a>
+                    <button id="landing-cta-header" onclick="app.startSimulator()" class="landing-primary">
+                        <span class="hidden sm:inline">Começar simulado</span>
+                        <span class="sm:hidden">Começar</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </nav>
+
+                <div id="simulator-actions" class="hidden flex items-center gap-2 sm:gap-3">
+                    <button id="btn-grid" onclick="app.toggleGridDrawer()"
+                        class="p-2 sm:px-3 sm:py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all">
+                        <i class="fa-solid fa-th-large text-blue-600 dark:text-blue-400"></i>
+                        <span class="hidden md:inline">Navegador</span>
+                    </button>
+                    <button onclick="app.confirmReset()"
+                        class="p-2 sm:px-3 sm:py-2 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/60 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all"
+                        title="Reiniciar Simulado">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span class="hidden sm:inline">Reiniciar</span>
+                    </button>
+                </div>
 
                 <button id="btn-theme" onclick="app.toggleTheme()"
                     class="p-2 sm:p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all"
@@ -113,31 +1003,20 @@
                     <i class="fa-solid fa-moon dark:hidden"></i>
                     <i class="fa-solid fa-sun hidden dark:inline text-amber-400"></i>
                 </button>
-
-                <button onclick="app.confirmReset()"
-                    class="p-2 sm:px-3 sm:py-2 rounded-lg bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/60 text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all"
-                    title="Reiniciar Simulado">
-                    <i class="fa-solid fa-rotate-right"></i>
-                    <span class="hidden sm:inline">Reiniciar</span>
-                </button>
             </div>
         </div>
     </header>
 
     <!-- PERFORMANCE METRICS BAR -->
-    <div class="bg-white dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/60 shadow-inner">
+    <div id="performance-bar" class="hidden bg-white dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/60 shadow-inner">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-4 items-center">
-                <!-- Current Question -->
                 <div class="col-span-2 sm:col-span-1 flex flex-col justify-center">
                     <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Progresso</span>
-                    <span id="stat-current-display"
-                        class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">
+                    <span id="stat-current-display" class="text-sm sm:text-base font-extrabold text-slate-800 dark:text-slate-100">
                         Questão 1 <span class="text-xs font-normal text-slate-500">de 100</span>
                     </span>
                 </div>
-
-                <!-- Acertos -->
                 <div
                     class="flex items-center gap-2.5 bg-emerald-50 dark:bg-emerald-950/30 p-2 sm:p-2.5 rounded-xl border border-emerald-200/60 dark:border-emerald-800/40">
                     <div
@@ -206,8 +1085,165 @@
         </div>
     </div>
 
+    <main id="landing-view" class="flex-1">
+        <section id="inicio" class="landing-hero" aria-labelledby="hero-title">
+            <img class="landing-hero-image"
+                src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&amp;fit=crop&amp;w=2200&amp;q=85"
+                alt="Estátua da Justiça em um ambiente jurídico" width="2200" height="1300" fetchpriority="high" decoding="async">
+            <div class="landing-hero-shade" aria-hidden="true"></div>
+            <div class="landing-hero-content">
+                <h1 id="hero-title">Simulado Profª Marisa</h1>
+                <div class="landing-actions">
+                    <button onclick="app.startSimulator()" class="landing-primary">
+                        Iniciar simulado <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-proof" aria-label="Recursos disponíveis no simulado">
+            <div class="landing-inner landing-proof-grid">
+                <div class="landing-proof-item">
+                    <span class="landing-proof-value">100</span>
+                    <span class="landing-proof-label">questões objetivas de Constitucional I</span>
+                </div>
+                <div class="landing-proof-item">
+                    <span class="landing-proof-value">4</span>
+                    <span class="landing-proof-label">alternativas por questão</span>
+                </div>
+                <div class="landing-proof-item">
+                    <span class="landing-proof-value">Local</span>
+                    <span class="landing-proof-label">progresso salvo no navegador</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="landing-section">
+            <div class="landing-inner">
+                <div class="landing-section-heading reveal">
+                    <p class="landing-eyebrow">Um estudo mais claro</p>
+                    <h2>Pratique. Entenda. Avance.</h2>
+                    <p>Um fluxo direto para transformar cada questão em uma oportunidade de revisar o conteúdo.</p>
+                </div>
+                <div class="landing-feature-grid">
+                    <article class="landing-feature reveal">
+                        <span class="landing-feature-icon"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></span>
+                        <h3>Treino com foco</h3>
+                        <p>Questões de múltipla escolha organizadas para você praticar Direito Constitucional I.</p>
+                    </article>
+                    <article class="landing-feature reveal">
+                        <span class="landing-feature-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+                        <h3>Correção didática</h3>
+                        <p>Confira o gabarito, a análise da questão e o comentário associado à alternativa escolhida.</p>
+                    </article>
+                    <article class="landing-feature reveal">
+                        <span class="landing-feature-icon"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span>
+                        <h3>Evolução visível</h3>
+                        <p>Acompanhe respostas, acertos e aproveitamento enquanto percorre o simulado.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" class="landing-section landing-section-muted">
+            <div class="landing-inner">
+                <div class="landing-section-heading reveal">
+                    <p class="landing-eyebrow">Simples do início ao fim</p>
+                    <h2>Como funciona</h2>
+                    <p>Você controla o ritmo. O simulado organiza a prática e deixa o próximo passo claro.</p>
+                </div>
+                <div class="landing-step-grid">
+                    <article class="landing-step reveal">
+                        <span class="landing-step-number">01</span>
+                        <h3>Responda</h3>
+                        <p>Leia o enunciado, escolha uma alternativa e confirme sua resposta.</p>
+                    </article>
+                    <article class="landing-step reveal">
+                        <span class="landing-step-number">02</span>
+                        <h3>Entenda</h3>
+                        <p>Veja o resultado e consulte a explicação e o comentário do gabarito.</p>
+                    </article>
+                    <article class="landing-step reveal">
+                        <span class="landing-step-number">03</span>
+                        <h3>Revise</h3>
+                        <p>Use o navegador de questões e os indicadores para escolher o que revisar.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="conteudo" class="landing-section">
+            <div class="landing-inner">
+                <div class="landing-section-heading reveal">
+                    <p class="landing-eyebrow">Banco de questões</p>
+                    <h2>Constitucional I, em prática.</h2>
+                    <p>Questões que percorrem conceitos introdutórios, constitucionalismo e a estrutura da Constituição Federal.</p>
+                </div>
+                <div class="landing-topic-grid reveal">
+                    <div class="landing-topic"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i> Fundamentos do Direito Constitucional</div>
+                    <div class="landing-topic"><i class="fa-solid fa-landmark" aria-hidden="true"></i> Constitucionalismo e experiências históricas</div>
+                    <div class="landing-topic"><i class="fa-solid fa-book" aria-hidden="true"></i> Constituição Federal de 1988</div>
+                    <div class="landing-topic"><i class="fa-solid fa-list-check" aria-hidden="true"></i> Questões objetivas com correção comentada</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="duvidas" class="landing-section landing-section-muted">
+            <div class="landing-inner">
+                <div class="landing-section-heading reveal">
+                    <p class="landing-eyebrow">Informações úteis</p>
+                    <h2>Perguntas frequentes</h2>
+                </div>
+                <div class="landing-faq reveal">
+                    <details>
+                        <summary>Preciso criar uma conta?</summary>
+                        <p>Não. O progresso é salvo no navegador que você está usando, sem cadastro.</p>
+                    </details>
+                    <details>
+                        <summary>Quantas questões estão disponíveis?</summary>
+                        <p>O simulado contém 100 questões objetivas de Direito Constitucional I.</p>
+                    </details>
+                    <details>
+                        <summary>Como funciona a correção?</summary>
+                        <p>Depois de responder, você vê se acertou, o gabarito e a análise didática da questão.</p>
+                    </details>
+                    <details>
+                        <summary>Posso estudar pelo celular?</summary>
+                        <p>Sim. O layout se adapta a telas de celular, tablet e computador.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-final-cta">
+            <div class="landing-inner">
+                <p class="landing-eyebrow">Seu próximo passo</p>
+                <h2>Comece pela primeira questão.</h2>
+                <p>Abra o simulado e pratique no seu ritmo. Seu progresso fica salvo neste navegador.</p>
+                <div class="landing-actions">
+                    <button onclick="app.startSimulator()" class="landing-primary">
+                        Abrir simulado <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="landing-footer" class="landing-footer">
+        <div class="landing-inner landing-footer-inner">
+            <div>
+                <strong>SimulaConcurso</strong>
+                <p class="text-sm mt-1">Direito Constitucional I · conteúdo educacional</p>
+            </div>
+            <div class="text-sm">
+                <a href="#duvidas">Dúvidas e dados de navegação</a>
+                <p class="mt-2">O progresso fica armazenado localmente no seu navegador.</p>
+            </div>
+        </div>
+    </footer>
+
     <!-- MAIN CONTENT -->
-    <main class="flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+    <main id="simulator-main" class="hidden flex-1 max-w-5xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
         <!-- QUESTION VIEW -->
         <div id="question-view" class="space-y-6">
@@ -1626,7 +2662,28 @@
 
         class SimuladoApp {
             constructor() {
-                this.questions = QUESTIONS_DATA;
+                this.questions = QUESTIONS_DATA.map(question => ({
+                    ...question,
+                    options: [...question.options],
+                    optionReasons: [...question.optionReasons]
+                }));
+                this.originalQuestions = new Map(QUESTIONS_DATA.map(question => [question.id, {
+                    options: [...question.options],
+                    optionReasons: [...question.optionReasons],
+                    correctIndex: question.correctIndex
+                }]));
+                this.optionOrders = {};
+                this.questions.forEach(question => {
+                    const order = question.options.map((_, index) => index);
+                    for (let index = order.length - 1; index > 0; index--) {
+                        const swapIndex = Math.floor(Math.random() * (index + 1));
+                        [order[index], order[swapIndex]] = [order[swapIndex], order[index]];
+                    }
+                    if (order.every((originalIndex, index) => originalIndex === index) && order.length > 1) {
+                        [order[0], order[1]] = [order[1], order[0]];
+                    }
+                    this.applyOptionOrder(question, order);
+                });
                 this.currentIndex = 0;
                 this.userAnswers = {}; // { questionId: { chosenIndex: number, isCorrect: boolean } }
                 this.gridFilter = 'all';
@@ -1635,6 +2692,20 @@
                 this.initTheme();
                 this.loadState();
                 this.render();
+                this.showLanding();
+                this.initRevealAnimations();
+            }
+
+            applyOptionOrder(question, order) {
+                const original = this.originalQuestions.get(question.id);
+                const letters = ['A', 'B', 'C', 'D'];
+                question.options = order.map((originalIndex, index) => {
+                    const text = original.options[originalIndex].replace(/^[A-D]\)\s*/, '');
+                    return `${letters[index]}) ${text}`;
+                });
+                question.optionReasons = order.map(originalIndex => original.optionReasons[originalIndex]);
+                question.correctIndex = order.indexOf(original.correctIndex);
+                this.optionOrders[question.id] = [...order];
             }
 
             /* Theme Initialization */
@@ -1663,6 +2734,7 @@
                 const dataToSave = {
                     currentIndex: this.currentIndex,
                     userAnswers: this.userAnswers,
+                    optionOrders: this.optionOrders,
                     updatedAt: new Date().toISOString()
                 };
                 try {
@@ -1680,6 +2752,22 @@
                         if (parsed && typeof parsed.currentIndex === 'number') {
                             this.currentIndex = parsed.currentIndex;
                             this.userAnswers = parsed.userAnswers || {};
+                            this.questions.forEach(question => {
+                                const savedOrder = parsed.optionOrders?.[question.id];
+                                const isValidOrder = Array.isArray(savedOrder) &&
+                                    savedOrder.length === question.options.length &&
+                                    new Set(savedOrder).size === question.options.length &&
+                                    savedOrder.every(index => Number.isInteger(index) && index >= 0 && index < question.options.length);
+
+                                if (isValidOrder) {
+                                    this.applyOptionOrder(question, savedOrder);
+                                } else {
+                                    const answer = this.userAnswers[question.id];
+                                    if (answer && Number.isInteger(answer.chosenIndex)) {
+                                        answer.chosenIndex = this.optionOrders[question.id].indexOf(answer.chosenIndex);
+                                    }
+                                }
+                            });
                         }
                     }
                 } catch (e) {
@@ -2040,7 +3128,44 @@
                 drawer.classList.toggle('hidden');
             }
 
+            initRevealAnimations() {
+                const targets = document.querySelectorAll('.reveal');
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+                    targets.forEach(target => target.classList.add('is-visible'));
+                    return;
+                }
+
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+
+                targets.forEach(target => observer.observe(target));
+            }
+
+            startSimulator() {
+                this.showDashboard();
+                this.render();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            showLanding() {
+                document.getElementById('landing-view').classList.remove('hidden');
+                document.getElementById('landing-footer').classList.remove('hidden');
+                document.getElementById('simulator-main').classList.add('hidden');
+                document.getElementById('performance-bar').classList.add('hidden');
+                document.getElementById('landing-nav').classList.remove('hidden');
+                document.getElementById('simulator-actions').classList.add('hidden');
+                document.getElementById('grid-drawer').classList.add('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
             showResultsView() {
+                this.showDashboard();
                 document.getElementById('question-view').classList.add('hidden');
                 document.getElementById('result-view').classList.remove('hidden');
                 document.getElementById('grid-drawer').classList.add('hidden');
@@ -2051,6 +3176,12 @@
             }
 
             showDashboard() {
+                document.getElementById('landing-view').classList.add('hidden');
+                document.getElementById('landing-footer').classList.add('hidden');
+                document.getElementById('simulator-main').classList.remove('hidden');
+                document.getElementById('performance-bar').classList.remove('hidden');
+                document.getElementById('landing-nav').classList.add('hidden');
+                document.getElementById('simulator-actions').classList.remove('hidden');
                 document.getElementById('result-view').classList.add('hidden');
                 document.getElementById('question-view').classList.remove('hidden');
             }
